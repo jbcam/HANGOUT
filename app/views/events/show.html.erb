@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+
+  </div>
+</div>
+<div class=" col d-flex">
+  <div class="text-center">
+    <h3><%= @event.starts_at.strftime('%^b') %></h3>
+    <p><%= @event.starts_at.strftime('%d') %></p>
+  </div>
+  <div class="p-2 flex-grow-1">
+    <%= @event.name %>
+  </div>
+</div>
+<div class=" col d-flex border-b">
+  <div class="p-2 flex-fill">
+  <div>
+    <i class="fas fa-user-check"></i>
+    <p>going</p>
+  </div>
+  <div>
+    <i class="far fa-star"></i>
+    <p>interested</p>
+  </div>
+  <div>
+    <i class="fas fa-share"></i>
+    <p>share</p>
+  </div>
+</div>
+<div class="col">
+
+
+</div>
+
+
+
+
