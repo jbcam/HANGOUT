@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   enum status: { unavailable: 0, available: 1 }
   has_many :events
+
+  validates :first_name, :last_name, :email, presence: true
 end
