@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_20_100419) do
+ActiveRecord::Schema.define(version: 2018_11_20_103428) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2018_11_20_100419) do
     t.datetime "starts_at"
     t.datetime "ends_at"
     t.string "address"
-    t.boolean "private"
+    t.boolean "private", default: false
     t.string "name"
     t.text "description"
     t.string "link"
@@ -61,6 +61,16 @@ ActiveRecord::Schema.define(version: 2018_11_20_100419) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.float "lat"
+    t.float "lng"
+    t.integer "status", default: 1
+    t.string "first_name"
+    t.string "last_name"
+    t.string "avatar"
+    t.string "linkedin"
+    t.text "bio"
+    t.string "city"
+    t.string "job"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "badge_id"
