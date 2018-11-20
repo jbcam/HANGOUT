@@ -10,10 +10,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_20_092449) do
+ActiveRecord::Schema.define(version: 2018_11_20_100419) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attendees", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_attendees_on_event_id"
+    t.index ["user_id"], name: "index_attendees_on_user_id"
+  end
+
+  create_table "badges", force: :cascade do |t|
+    t.string "logo"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.string "picto"
+    t.string "photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.string "address"
+    t.boolean "private"
+    t.string "name"
+    t.text "description"
+    t.string "link"
+    t.bigint "category_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_events_on_category_id"
+    t.index ["user_id"], name: "index_events_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +63,18 @@ ActiveRecord::Schema.define(version: 2018_11_20_092449) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "badge_id"
+    t.bigint "category_id"
+    t.index ["badge_id"], name: "index_users_on_badge_id"
+    t.index ["category_id"], name: "index_users_on_category_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "attendees", "events"
+  add_foreign_key "attendees", "users"
+  add_foreign_key "events", "categories"
+  add_foreign_key "events", "users"
+  add_foreign_key "users", "badges"
+  add_foreign_key "users", "categories"
 end
