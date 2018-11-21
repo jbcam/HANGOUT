@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2018_11_20_135811) do
 
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -66,9 +65,7 @@ ActiveRecord::Schema.define(version: 2018_11_20_135811) do
     t.datetime "remember_created_at"
     t.float "lat"
     t.float "lng"
-
     t.integer "status", default: 1
-
     t.string "first_name"
     t.string "last_name"
     t.string "avatar"
