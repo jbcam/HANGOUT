@@ -1,0 +1,10 @@
+
+<div class="card-index" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('#');">
+  <%= image_tag user.category.picto, class: "picto-small card-picto-user" %>
+  <div class="card-description">
+    <h2><%= "#{user.first_name} #{user.last_name}" %></h2>
+    <p>About</p>
+  </div>
+  <%= cl_image_tag user.avatar.url(:avatar), class: "avatar-large dropdown-toggle card-avatar-user" %>
+   <div class="distance">2 km</div>
+</div>
