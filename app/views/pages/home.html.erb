@@ -1,4 +1,13 @@
 <h1>Pages#home</h1>
-<%= @users %>
-<%= @events %>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<%# render @users %>
+
+<% @users.each do |user|  %>
+  <%= render "users/user", user: user %>
+<% end %>
+
+<% @events.each do |event|%>
+<%= event %>
+
+<% end %>
+
