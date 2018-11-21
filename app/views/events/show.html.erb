@@ -1,35 +1,72 @@
 <div class="container">
   <div class="row">
-
-  </div>
-</div>
-<div class=" col d-flex">
-  <div class="text-center">
-    <h3><%= @event.starts_at.strftime('%^b') %></h3>
-    <p><%= @event.starts_at.strftime('%d') %></p>
-  </div>
-  <div class="p-2 flex-grow-1">
-    <%= @event.name %>
-  </div>
-</div>
-<div class=" col d-flex border-b">
-  <div class="p-2 flex-fill">
-  <div>
-    <i class="fas fa-user-check"></i>
-    <p>going</p>
-  </div>
-  <div>
-    <i class="far fa-star"></i>
-    <p>interested</p>
-  </div>
-  <div>
-    <i class="fas fa-share"></i>
-    <p>share</p>
-  </div>
-</div>
-<div class="col">
-
-
+    <!-- top square -->
+      <div class="col d-flex align-items-center p-4">
+        <%=  image_tag @event.category.picto, width:"50" %>
+        <h3 class="flex-grow-1 text-center">
+          <%= @event.name %>
+        </h3>
+        <div class="text-center ml-3">
+          <div id="red"><%= @event.starts_at.strftime('%^b') %></div>
+          <h4><%= @event.starts_at.strftime('%d') %></h3>
+        </div>
+     </div>
+    </div>
+  <!-- action -->
+    <div class="row control">
+      <div class=" col d-inline-flex p-2 border-bt">
+        <div class="flex-fill text-center">
+          <i class="fas fa-user-check"></i>
+          <p>going</p>
+        </div>
+        <div class="flex-fill text-center">
+          <i class="far fa-star"></i>
+          <p>interested</p>
+        </div>
+        <div class="flex-fill text-center">
+          <i class="fas fa-share"></i>
+          <p>share</p>
+        </div>
+      </div>
+    </div>
+  <!-- desc -->
+    <div class="row">
+      <div class= " col info p-3">
+         <p>
+        <i class="far fa-clock"></i> <%= display_time(@event) %>
+      </p>
+      <p>
+        <i class="fas fa-map-marker-alt"></i> <%= @event.address %>
+      </p>
+      <% if @event.link %>
+        <p>
+          <i class="fas fa-link"></i> <%= @event.link %>
+        </p>
+      <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <div class=" col info p-3 border-bt-bold">
+          <h4>details</h4>
+          <p><%= @event.description %></p>
+      </div>
+    </div>
+  <!-- attendees -->
+    <div class="row">
+      <div class="col d-flex align-items-center p-3">
+        <%= cl_image_tag current_user.avatar.url(:avatar), class: "avatar-bordered" %>
+         <div class="flex-grow-1 pl-2">
+          organized by: <%= @event.user.first_name %>
+        </div>
+      </div>
+    </div>
+    <!-- rows -->
+    <div class="row">
+      <div class=" col avatars text-left p-3 border-bt">
+          <%= render '/shared/attendees_avatars', attendees: @event.attendees %>
+      </div>
+    </div>
+ </div>
 </div>
 
 

@@ -1,0 +1,26 @@
+.border-bt {
+  border-top: solid 1px $light-gray;
+  border-bottom: solid 1px $light-gray;
+}
+
+.border-bt-bold {
+  border-top: solid 15px $light-gray;
+  border-bottom: solid 15px $light-gray;
+}
+.control p {
+  margin-bottom: 0;
+}
+
+.info p:last-child {
+  margin-bottom: 0;
+}
+
+#red {
+  color: $red;
+}
+
+.block-separator {
+  background: $light-gray;
+  height: 15px;
+  width: 100vw;
+}

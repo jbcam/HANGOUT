@@ -2,6 +2,7 @@ require 'faker'
 
 puts 'Cleaning database...'
 
+Attendee.destroy_all
 Event.destroy_all
 User.destroy_all
 Category.destroy_all
@@ -60,6 +61,7 @@ user_attributes = [
 
 User.create!(user_attributes)
 
+
 user1 = User.new(
   first_name: 'Arthur',
   last_name: "D'Huy",
@@ -114,26 +116,7 @@ category_attributes = [
 
 Category.create!(category_attributes)
 
-badge_attributes = [
-  {
-    name: 'newcommer',
-    logo: 'badge_1.png',
-  },
-  {
-    name: 'regular',
-    logo: 'badge_2.png',
-  },
-  {
-    name: 'leader',
-    logo: 'badge_3.png',
-  },
-  {
-    name: 'Ambasador',
-    logo: 'badge_4.png',
-  }
-]
 
-Badge.create!(badge_attributes)
 
 event_attributes = [
   {
@@ -159,5 +142,26 @@ event_attributes = [
 ]
 
 Event.create!(event_attributes)
+
+attendees_attributes = [
+  {
+    user: User.first,
+    event: Event.first
+  },
+  {
+    user: User.second,
+    event: Event.first
+  },
+  {
+    user: User.third,
+    event: Event.first
+  },
+  {
+    user: User.fourth,
+    event: Event.first
+  }
+]
+
+Attendee.create!(attendees_attributes)
 
 puts 'Finished!'
