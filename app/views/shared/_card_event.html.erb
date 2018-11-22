@@ -1,10 +1,19 @@
-<div class="card-index" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('#');">
-  <%= image_tag event.category.picto, class: "picto-small card-picto-event" %>
-  <%#= render 'shared/attendee_avatar', attendees: Event.last.attendees %>
-  <div class="card-description">
-    <h2><%= event.name %></h2>
-    <p><%= event.address %> </p>
-    <p><%= event.starts_at %> </p>
+<div class="card-base card-event">
+  <%= image_tag event.category.picto, class: "picto-small card-event-picto" %>
+  <div class="card-event-time text-center ml-3">
+    <div id="red"><%= event.starts_at.strftime('%^b') %></div>
+    <h4><%= event.starts_at.strftime('%d') %></h3>
   </div>
-  <div class="distance"> 2 km </div>
+  <div class="card-desc">
+    <h2><%= event.name %></h2>
+    <i class="fas fa-map-marker-alt"></i>
+    <p><%= event.address %></p>
+  </div>
+  <div class="card-event-attendees d-flex align-items-end">
+     <%= render 'shared/attendees_avatars', attendees: event.attendees %>
+     <p class="flex-grow-1 ml-1 mb-0">
+          <%= event.attendees.size %>
+      </p>
+  </div>
+  <div class="card-km">2 km</div>
 </div>

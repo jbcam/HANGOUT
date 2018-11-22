@@ -1,78 +1,43 @@
 .card-user {
-  height: 350px;
-  position: relative;
-  border-radius: $border-radius-large;
-  box-shadow: 0 0 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   margin-top: 50px;
   margin-bottom: 10px
 }
-.card-avatar {
+.card-user-avatar {
   position: absolute;
   left: 50%;
   transform:translateX(-50%) translateY(-50%);
 }
 
-.card-desc {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform:translateX(-50%) translateY(-50%);
-  text-align: center;
-}
-
-.card-desc h2 {
-  font-size: 24px;
-}
-
-.card-desc h4 {
-  font-size: 20px;
-  margin-bottom: 1rem;
-}
-
-.card-desc-job {
+.card-user-job {
   display: flex;
-  align-items:center;
+  align-items: center;
   justify-content:center;
   margin-bottom: 1rem;
 }
 
-.card-desc-job h3 {
+.card-user-job h3 {
   font-size: 22px;
   margin-bottom: 0;
   padding-left: 30px;
 }
 
-.card-desc-job a {
+.card-user-job a {
   font-size: 24px;
   padding-left: 10px;
 }
 
-.card-desc p {
-  font-size: 14px;
-  opacity: 0.7;
-  // font-weight: lighter;
-}
-
-.card-desc-job a:hover {
+.card-user-job a:hover {
   color: $blue;
 }
 
-.card-desc-bio {
+.card-user-bio {
   padding: 0 7%;
 }
 
-.card-mood-picto {
+.card-user-mood {
   position: absolute;
   left: 10px;
   bottom: 10px;
 }
 
-.card-km {
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
-  opacity: 0.7;
-  font-size: 0.8em;
-  font-style: italic;
-}
 

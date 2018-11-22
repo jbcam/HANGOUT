@@ -1,9 +1,9 @@
-<div class="card-user">
-  <%=  cl_image_tag current_user.avatar.url(:avatar), class: "card-avatar avatar-xl avatar-bordered"  %>
+<div class="card-base card-user">
+  <%=  cl_image_tag current_user.avatar.url(:avatar), class: "card-user-avatar avatar-xl avatar-bordered"  %>
   <!-- desc -->
   <div class="card-desc">
     <h2><%= full_name(user) %></h2>
-    <div class="card-desc-job">
+    <div class="card-user-job">
       <h3><%= user.job %></h3>
       <%=  link_to raw("<i class='fab fa-linkedin'></i>"), user.linkedin, target:'blank', class: 'link' %>
     </div>
@@ -12,8 +12,7 @@
     <h4><%= user.mood %></h4>
     <a href="" class="btn btn-primary">contact</a>
   </div>
-  <%= image_tag user.category.picto, class: "picto-small card-mood-picto" %>
-
+  <%= image_tag user.category.picto, class: "picto-small card-user-mood" %>
   <div class="card-km">
     10 km
   </div>
