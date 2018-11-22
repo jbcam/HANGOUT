@@ -2,7 +2,8 @@ class Event < ApplicationRecord
   belongs_to :category
   belongs_to :user
   has_many :attendees
-  
+  has_many :messages, as: :messageable
+
   validates :name, :description, :address, presence: true
 
   geocoded_by :address

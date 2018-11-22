@@ -5,4 +5,7 @@ class PagesController < ApplicationController
     @users = User.all
     @events = Event.all
   end
+
+  def chat
+  end
 end
