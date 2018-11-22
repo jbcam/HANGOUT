@@ -1,7 +1,7 @@
 import 'bootstrap/dist/js/bootstrap';
 import "bootstrap";
-import { getFriendsProximity } from "../geolocation";
+import { getProximity } from "../geolocation";
 
-document.addEventListener("DOMContentLoaded", getFriendsProximity);
+document.addEventListener("DOMContentLoaded", getProximity);
 
 
