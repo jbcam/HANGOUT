@@ -1,12 +1,16 @@
-<h1>Pages#home</h1>
-
-<%# render @users %>
-
-<% @users.each do |user|  %>
-  <%= render "shared/card_user", user: user %>
-<% end %>
-
-<% @events.each do |event|%>
-<%= event %>
-
-<% end %>
+<div class="container">
+  <div class="row people">
+    <% @users.each do |user|  %>
+      <div class="col-md-4">
+        <%= render "shared/card_user", user: user %>
+      </div>
+    <% end %>
+  </div>
+   <div class="row event">
+    <% @events.each do |event|  %>
+      <div class="col-md-4">
+        <%= render "shared/card_event", event: event %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -50,13 +50,13 @@ function getFriendsProximity() {
   });
 
   getCurrentGPS.then(function(userLocation){
-
-    const cardUsers = document.querySelectorAll(".card-index");
+    console.log("ta mere");
+    const cardUsers = document.querySelectorAll(".card-user");
     cardUsers.forEach((cardUser) => {
       const friendLocation = getFriendLocation(cardUser);
       const distance = distanceBetween(userLocation["lat"], userLocation["lng"], friendLocation["lat"], friendLocation["lng"]);
       console.log(distance);
-      const cardUserLocation = cardUser.querySelector(".distance").innerHTML = `${Math.round(distance * 100) / 100} Km` ;
+      const cardUserLocation = cardUser.querySelector(".card-km").innerHTML = `${Math.round(distance * 100) / 100} Km` ;
       console.log(cardUser);
 
     });
