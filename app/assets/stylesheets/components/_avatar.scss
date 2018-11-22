@@ -2,19 +2,38 @@
   width: 30px;
   border-radius: 50%;
 }
+
 .avatar-large {
   width: 50px;
   border-radius: 50%;
+  overflow:hidden;
 }
-.avatar-bordered {
-  width: 30px;
+
+.avatar-xl {
+  width: 80px;
   border-radius: 50%;
+}
+
+.avatar-bordered {
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
 }
+
 .avatar-square {
   width: 30px;
   border-radius: 0px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
+}
+
+// group of ovelerlaying avatars
+.avatars {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  padding-left: 25px;
+}
+
+.avatar-group {
+  margin-left: -25px;
+  position: relative;
 }

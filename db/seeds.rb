@@ -2,6 +2,7 @@ require 'faker'
 
 puts 'Cleaning database...'
 
+Attendee.destroy_all
 Event.destroy_all
 User.destroy_all
 Category.destroy_all
@@ -40,8 +41,7 @@ category_attributes = [
 
 Category.create!(category_attributes)
 
-
-#   User.create
+# User.create
 
 user_attributes = [
 {
@@ -96,15 +96,39 @@ user_attributes = [
   city: 'London',
   bio: Faker::Lorem.sentence(3),
   job: 'Bread Scientist',
-  category: Category.fourth,
+  category: Category.fourth
+},
+{
+  first_name: 'Arthur',
+  last_name: "D'Huy",
+  email: 'a.dhuy@orange.fr',
+  remote_avatar_url: 'https://kitt.lewagon.com/placeholder/users/led8',
+  password:'azerty',
+  linkedin: 'https://www.linkedin.com/in/arthur-d-huy-849b62a2/',
+  city: 'Bordeaux',
+  bio: Faker::Lorem.sentence(3),
+  job: 'Jurist',
+  category: Category.first,
   lat: 44.8268667,
   lng: -0.5744507
+},
+{
+  first_name: 'Diego',
+  last_name: 'Bolettieri',
+  email: 'diego@bebetterhotels.comm',
+  remote_avatar_url: 'https://kitt.lewagon.com/placeholder/users/diegobolettieri/',
+  password:'azerty',
+  linkedin: 'https://www.linkedin.com/in/k%C3%A9vin-joya-5b6250133/',
+  city: 'Santiago',
+  bio: Faker::Lorem.sentence(3),
+  job: 'Entrepreneur',
+  category: Category.first
 }
 ]
 
 User.create!(user_attributes)
 
-
+# badges
 badge_attributes = [
   {
     name: 'newcommer',
@@ -117,14 +141,10 @@ badge_attributes = [
   {
     name: 'leader',
     logo: 'badge_3.png',
-  },
-  {
-    name: 'Ambasador',
-    logo: 'badge_4.png',
   }
 ]
 
-Badge.create!(badge_attributes)
+User.create!(user_attributes)
 
 event_attributes = [
   {
@@ -150,5 +170,28 @@ event_attributes = [
 ]
 
 Event.create!(event_attributes)
+
+# attendees
+
+attendees_attributes = [
+  {
+    user: User.first,
+    event: Event.first
+  },
+  {
+    user: User.second,
+    event: Event.first
+  },
+  {
+    user: User.third,
+    event: Event.first
+  },
+  {
+    user: User.fourth,
+    event: Event.first
+  }
+]
+
+Attendee.create!(attendees_attributes)
 
 puts 'Finished!'

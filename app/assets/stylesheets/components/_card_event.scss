@@ -1,56 +1,28 @@
-  .card-index {
-  width: 347px;
-  height: 143px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  background-size: cover !important;
-  background-position: center;
-  color: white;
-  position: relative;
-  background-color: $light-blue;
+.card-event {
+  margin: 10px 0;
 }
-.card-picto-event {
+
+.card-event-picto {
   position: absolute;
   top: 10px;
   left: 10px;
 }
 
-.distance {
+.card-event-time {
   position: absolute;
+  top: 10px;
   right: 10px;
-  bottom: 10px;
 }
 
-.card-description {
+.card-event-attendees {
   position: absolute;
   bottom: 10px;
-  left: 67px;
-  width: 200px;
-  padding-bottom: 34px;
+  left: 10px;
+}
 
-}
-.card-description h2 {
-  font-size: 18px;
-  text-align: center;
-  margin-top: 0px;
-  margin-bottom: 14.5px;
-}
-.card-description p {
-  font-size: 10px;
+.card-event-attendees p {
+  padding-left: 10px;
+  margin-bottom: 0;
+  font-size: 14px;
   opacity: 0.7;
-  font-weight: lighter;
-  text-align: center;
-  margin: 0 0 1.5px;
-}
-.card-link {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  z-index: 2;
-  background: black;
-  opacity: 0;
-}
-.card-link:hover {
-  opacity: 0.1;
 }

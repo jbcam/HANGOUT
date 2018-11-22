@@ -1,10 +1,21 @@
-
-<div  data-user="<%= user.id %>" data-lat="<%= user.lat %>" data-lng="<%= user.lng %>" class="card-index" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('#');">
-  <%= image_tag user.category.picto, class: "picto-small card-picto-user" %>
-  <div class="card-description">
-    <h2><%= "#{user.first_name} #{user.last_name}" %></h2>
-    <p>About</p>
+<div class="card-base card-user">
+  <%=  cl_image_tag current_user.avatar.url(:avatar, secure:true), class: "card-user-avatar avatar-xl avatar-bordered"  %>
+  <!-- desc -->
+  <div class="card-desc">
+    <h2><%= full_name(user) %></h2>
+    <div class="card-user-job">
+      <h3><%= user.job %></h3>
+      <%=  link_to raw("<i class='fab fa-linkedin'></i>"), user.linkedin, target:'blank', class: 'link' %>
+    </div>
+    <i class="fas fa-map-marker-alt"></i>
+    <p>From <%= user.city %></p>
+    <h4><%= user.mood %></h4>
+    <a href="" class="btn btn-primary">contact</a>
   </div>
-  <%= cl_image_tag(user.avatar.url(:avatar, secure: true), class: "avatar-large dropdown-toggle card-avatar-user") %>
-   <div class="distance">2 km</div>
+  <%= image_tag user.category.picto, class: "picto-small card-user-mood" %>
+  <div class="card-km">
+    10 km
+  </div>
 </div>
+
+
