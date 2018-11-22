@@ -90,7 +90,7 @@ user_attributes = [
   first_name: 'Jean-Baptiste',
   last_name: 'Camaret',
   email: 'jbaptiste.camaret@gmail.com',
-  remote_avatar_url: 'https://kitt.lewagon.com/placeholder/users/kvin3324',
+  remote_avatar_url: 'https://kitt.lewagon.com/placeholder/users/jbcam',
   password:'azerty',
   linkedin: 'https://www.linkedin.com/in/jean-baptiste-camaret-ba621322/',
   city: 'London',
@@ -116,7 +116,7 @@ user_attributes = [
   first_name: 'Diego',
   last_name: 'Bolettieri',
   email: 'diego@bebetterhotels.comm',
-  remote_avatar_url: 'https://kitt.lewagon.com/placeholder/users/diegobolettieri/',
+  remote_avatar_url: 'https://kitt.lewagon.com/placeholder/users/DieBole',
   password:'azerty',
   linkedin: 'https://www.linkedin.com/in/k%C3%A9vin-joya-5b6250133/',
   city: 'Santiago',
@@ -129,7 +129,7 @@ user_attributes = [
 User.create!(user_attributes)
 
 # badges
-badge_attributes = [
+badges_attributes = [
   {
     name: 'newcommer',
     logo: 'badge_1.png',
@@ -144,7 +144,9 @@ badge_attributes = [
   }
 ]
 
-User.create!(user_attributes)
+Badge.create!(badges_attributes)
+
+# events
 
 event_attributes = [
   {
