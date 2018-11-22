@@ -13,7 +13,9 @@
      <%= render 'shared/attendees_avatars', attendees: event.attendees %>
      <p class="flex-grow-1 ml-1 mb-0">
           <%= event.attendees.size %>
-      </p>
+    </p>
   </div>
   <div class="card-km">2 km</div>
+  <%= link_to "", event_path(event), class: "card-link"  %>
+
 </div>
