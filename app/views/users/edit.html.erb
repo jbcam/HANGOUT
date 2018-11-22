@@ -1,2 +1,14 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<h1>Profile</h1>
+<div class="container">
+  <%= simple_form_for(@user) do |f| %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :email %>
+    <%= f.input :linkedin %>
+    <%= f.input :avatar %>
+    <%= f.input :bio %>
+    <%= f.input :city %>
+    <%= f.input :job %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
+</div>
