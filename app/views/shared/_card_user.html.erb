@@ -1,5 +1,5 @@
 
-<div class="card-index" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('#');">
+<div  data-user="<%= user.id %>" data-lat="<%= user.lat %>" data-lng="<%= user.lng %>" class="card-index" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('#');">
   <%= image_tag user.category.picto, class: "picto-small card-picto-user" %>
   <div class="card-description">
     <h2><%= "#{user.first_name} #{user.last_name}" %></h2>
