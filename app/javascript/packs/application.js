@@ -1,4 +1,6 @@
 import "bootstrap";
-import { getUserLocation } from "../geolocation";
+import { getFriendsProximity } from "../geolocation";
 
-document.addEventListener("DOMContentLoaded", getUserLocation());
+document.addEventListener("DOMContentLoaded", getFriendsProximity);
+
+

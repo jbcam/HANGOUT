@@ -54,7 +54,9 @@ user_attributes = [
   city: 'Bordeaux',
   bio: Faker::Lorem.sentence(3),
   job: 'Sofa tester',
-  category: Category.first
+  category: Category.first,
+  lat: 44.8347567,
+  lng: -0.5750013
 },
 {
   first_name: 'Nicolas',
@@ -66,8 +68,9 @@ user_attributes = [
   city: 'Paris',
   bio: Faker::Lorem.sentence(3),
   job: 'Chocolate Beer Expert',
-  category: Category.second
-
+  category: Category.second,
+  lat: 44.8315907,
+  lng: -0.6844575
 },
 {
   first_name: 'Paul',
@@ -79,7 +82,9 @@ user_attributes = [
   city: 'Scorbé-Clairvaux',
   bio: Faker::Lorem.sentence(3),
   job: 'Wizard',
-  category: Category.third
+  category: Category.third,
+  lat: 44.859351,
+  lng: -0.5681261
 },
 {
   first_name: 'Jean-Baptiste',
@@ -91,7 +96,9 @@ user_attributes = [
   city: 'London',
   bio: Faker::Lorem.sentence(3),
   job: 'Bread Scientist',
-  category: Category.fourth
+  category: Category.fourth,
+  lat: 44.8268667,
+  lng: -0.5744507
 }
 ]
 
