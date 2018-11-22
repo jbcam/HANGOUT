@@ -1,7 +1,7 @@
 <div class="avatars">
   <% attendees.first(4).each do |attendee| %>
     <span class="avatar-group">
-        <%= cl_image_tag attendee.user.avatar.url(:avatar), class: "avatar-bordered"  %>
+        <%= cl_image_tag attendee.user.avatar.url(:avatar), class: "avatar-large avatar-bordered"  %>
     </span>
   <% end %>
 </div>

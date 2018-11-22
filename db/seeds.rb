@@ -41,8 +41,7 @@ category_attributes = [
 
 Category.create!(category_attributes)
 
-
-#   User.create
+# User.create
 
 user_attributes = [
 {
@@ -103,7 +102,8 @@ user_attributes = [
   linkedin: 'https://www.linkedin.com/in/arthur-d-huy-849b62a2/',
   city: 'Bordeaux',
   bio: Faker::Lorem.sentence(3),
-  job: 'Jurist'
+  job: 'Jurist',
+  category: Category.first
   },
  {
   first_name: 'Diego',
@@ -114,7 +114,8 @@ user_attributes = [
   linkedin: 'https://www.linkedin.com/in/k%C3%A9vin-joya-5b6250133/',
   city: 'Santiago',
   bio: Faker::Lorem.sentence(3),
-  job: 'Entrepreneur'
+  job: 'Entrepreneur',
+  category: Category.first
  }
 ]
 
