@@ -1,5 +1,5 @@
 <div class="card-base card-user">
-  <%=  cl_image_tag current_user.avatar.url(:avatar), class: "card-user-avatar avatar-xl avatar-bordered"  %>
+  <%=  cl_image_tag current_user.avatar.url(:avatar, secure:true), class: "card-user-avatar avatar-xl avatar-bordered"  %>
   <!-- desc -->
   <div class="card-desc">
     <h2><%= full_name(user) %></h2>
