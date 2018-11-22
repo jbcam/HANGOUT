@@ -55,8 +55,8 @@ user_attributes = [
   bio: Faker::Lorem.sentence(3),
   job: 'Sofa tester',
   category: Category.first,
-  lat: 44.8347567,
-  lng: -0.5750013
+  latitude: 44.8347567,
+  longitude: -0.5750013
 },
 {
   first_name: 'Nicolas',
@@ -69,8 +69,8 @@ user_attributes = [
   bio: Faker::Lorem.sentence(3),
   job: 'Chocolate Beer Expert',
   category: Category.second,
-  lat: 44.8315907,
-  lng: -0.6844575
+  latitude: 44.8315907,
+  longitude: -0.6844575
 },
 {
   first_name: 'Paul',
@@ -83,8 +83,8 @@ user_attributes = [
   bio: Faker::Lorem.sentence(3),
   job: 'Wizard',
   category: Category.third,
-  lat: 44.859351,
-  lng: -0.5681261
+  latitude: 44.859351,
+  longitude: -0.5681261
 },
 {
   first_name: 'Jean-Baptiste',
@@ -109,8 +109,8 @@ user_attributes = [
   bio: Faker::Lorem.sentence(3),
   job: 'Jurist',
   category: Category.first,
-  lat: 44.8268667,
-  lng: -0.5744507
+  latitude: 44.8268667,
+  longitude: -0.5744507
 },
 {
   first_name: 'Diego',
