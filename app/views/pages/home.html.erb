@@ -1,6 +1,12 @@
 <h1>Pages#home</h1>
-<%= @users %>
-<%= @events %>
-<p class="d-none">Find me in app/views/pages/home.html.erb</p>
-<%#= render 'shared/card_user', user: User.first %>
 
+<%# render @users %>
+
+<% @users.each do |user|  %>
+  <%= render "shared/card_user", user: user %>
+<% end %>
+
+<% @events.each do |event|%>
+<%= event %>
+
+<% end %>

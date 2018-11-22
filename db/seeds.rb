@@ -54,7 +54,9 @@ user_attributes = [
   city: 'Bordeaux',
   bio: Faker::Lorem.sentence(3),
   job: 'Sofa tester',
-  category: Category.first
+  category: Category.first,
+  lat: 44.8347567,
+  lng: -0.5750013
 },
 {
   first_name: 'Nicolas',
@@ -66,8 +68,9 @@ user_attributes = [
   city: 'Paris',
   bio: Faker::Lorem.sentence(3),
   job: 'Chocolate Beer Expert',
-  category: Category.second
-
+  category: Category.second,
+  lat: 44.8315907,
+  lng: -0.6844575
 },
 {
   first_name: 'Paul',
@@ -79,7 +82,9 @@ user_attributes = [
   city: 'Scorbé-Clairvaux',
   bio: Faker::Lorem.sentence(3),
   job: 'Wizard',
-  category: Category.third
+  category: Category.third,
+  lat: 44.859351,
+  lng: -0.5681261
 },
 {
   first_name: 'Jean-Baptiste',
@@ -103,9 +108,11 @@ user_attributes = [
   city: 'Bordeaux',
   bio: Faker::Lorem.sentence(3),
   job: 'Jurist',
-  category: Category.first
-  },
- {
+  category: Category.first,
+  lat: 44.8268667,
+  lng: -0.5744507
+},
+{
   first_name: 'Diego',
   last_name: 'Bolettieri',
   email: 'diego@bebetterhotels.comm',
@@ -116,7 +123,25 @@ user_attributes = [
   bio: Faker::Lorem.sentence(3),
   job: 'Entrepreneur',
   category: Category.first
- }
+}
+]
+
+User.create!(user_attributes)
+
+# badges
+badge_attributes = [
+  {
+    name: 'newcommer',
+    logo: 'badge_1.png',
+  },
+  {
+    name: 'regular',
+    logo: 'badge_2.png',
+  },
+  {
+    name: 'leader',
+    logo: 'badge_3.png',
+  }
 ]
 
 User.create!(user_attributes)
