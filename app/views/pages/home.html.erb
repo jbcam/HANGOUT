@@ -1,24 +1,26 @@
  <!-- status -->
  <%= render "status" %>
  <!-- off line view -->
- <div class="container">
+ <div class="container d-none" id="not-available">
    <div class="row">
-     <div class="col-md-4 offset-md-4">
-        <p><%= pluralize(@users.size, 'user') %> are available to hang out </p>
-        <p>switch on to connect</p>
+     <div class="col-md-4 offset-md-4 text-center">
+        <div><%= pluralize(@users.size, 'user') %> are available to hang out </div>
         <div class="avatars">
           <% @users.first(4).each do |user| %>
             <span class="avatar-group">
               <%= cl_image_tag user.avatar.url(:avatar, secure:true), class: "avatar-large avatar-bordered"  %>
             </span>
           <% end %>
+
         </div>
+         <p class="ml-1 mb-0">+<%= @users.size - 4 %></p>
+        <div>switch on to connect</div>
      </div>
    </div>
  </div>
 
  <!-- results -->
-<div class="container">
+<div class="container" id="available">
   <div class="row people">
     <% @users.each do |user|  %>
       <div class="col-md-4">
