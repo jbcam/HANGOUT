@@ -14,7 +14,7 @@
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
 
-    <%= render 'shared/filters' if current_page?(root_path) %>
+    <%= render 'status' if current_page?(root_path) %>
     <div id="home-placeholder">
       <%= yield %>
     </div>
