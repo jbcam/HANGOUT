@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_22_144146) do
+ActiveRecord::Schema.define(version: 2018_11_22_142408) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,15 @@ ActiveRecord::Schema.define(version: 2018_11_22_144146) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "conversations", force: :cascade do |t|
+    t.integer "sender_id"
+    t.integer "recipient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipient_id"], name: "index_conversations_on_recipient_id"
+    t.index ["sender_id"], name: "index_conversations_on_sender_id"
+  end
+
   create_table "events", force: :cascade do |t|
     t.datetime "starts_at"
     t.datetime "ends_at"
@@ -55,6 +64,18 @@ ActiveRecord::Schema.define(version: 2018_11_22_144146) do
     t.float "longitude"
     t.index ["category_id"], name: "index_events_on_category_id"
     t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.string "messageable_type"
+    t.bigint "messageable_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["messageable_id", "messageable_type"], name: "index_messages_on_messageable_id_and_messageable_type"
+    t.index ["messageable_type", "messageable_id"], name: "index_messages_on_messageable_type_and_messageable_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -88,6 +109,7 @@ ActiveRecord::Schema.define(version: 2018_11_22_144146) do
   add_foreign_key "attendees", "users"
   add_foreign_key "events", "categories"
   add_foreign_key "events", "users"
+  add_foreign_key "messages", "users"
   add_foreign_key "users", "badges"
   add_foreign_key "users", "categories"
 end

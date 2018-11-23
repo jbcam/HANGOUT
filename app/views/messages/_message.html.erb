@@ -1,0 +1,15 @@
+<% if message.user == current_user %>
+  <div class="message-group d-flex justify-content-end align-items-end my-1">
+    <div class="message me flex-grow-1 p-2">
+      <%= message.content %>
+    </div>
+    <%= cl_image_tag current_user.avatar.url(:avatar, secure:true), class: "avatar ml-1" %>
+  </div>
+<% else %>
+  <div class="message-group d-flex justify-content-start align-items-end">
+    <%= cl_image_tag current_user.avatar.url(:avatar, secure:true), class: "avatar mr-1" %>
+    <div class="message friend flex-grow-1 p-2">
+      <%= message.content %>
+    </div>
+  </div>
+<% end %>

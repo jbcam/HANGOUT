@@ -7,6 +7,7 @@ class User < ApplicationRecord
   enum status: { unavailable: 0, available: 1 }
   belongs_to :category
   has_many :events
+  has_many :conversations, foreign_key: "sender_id", dependent: :destroy
 
   validates :first_name, :last_name, :email, presence: true
 

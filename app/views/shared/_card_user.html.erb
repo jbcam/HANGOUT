@@ -10,7 +10,7 @@
     <i class="fas fa-map-marker-alt"></i>
     <p>From <%= user.city %></p>
     <h4><%= user.mood %></h4>
-    <a href="" class="btn btn-primary">contact</a>
+    <%= link_to 'contact', conversations_path(recepient_id: user.id),  method: :post, class: "btn btn-primary" %>
   </div>
   <%= image_tag user.category.picto, class: "picto-small card-user-mood" %>
   <div class="card-km">
