@@ -1,4 +1,4 @@
-<div data-user="<%= user.id %>" data-lat="<%= user.lat %>" data-lng="<%= user.lng %>" class="card-base card-user">
+<div data-user="<%= user.id %>" data-lat="<%= user.latitude %>" data-lng="<%= user.longitude %>" class="card-base card-user">
   <%=  cl_image_tag user.avatar.url(:avatar, secure:true), class: "card-user-avatar avatar-xl avatar-bordered"  %>
   <!-- desc -->
   <div class="card-desc">

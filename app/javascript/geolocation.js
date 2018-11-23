@@ -1,14 +1,3 @@
-// function getUserLocation() {
-//   navigator.geolocation.getCurrentPosition(function(location) {
-//     const lat = location.coords.latitude;
-//     const lng = location.coords.longitude;
-//     const coordinates = { lat: lat, lng: lng };
-//     console.log(coordinates)
-//     // return coordinates
-//   });
-// }
-
-
 function distanceBetween(lat1, lon1, lat2, lon2) {
   var R = 6371; // km
   var dLat = toRad(lat2-lat1);
@@ -28,18 +17,14 @@ function toRad(Value) {
   return Value * Math.PI / 180;
 };
 
-
-function getFriendLocation(cardUser) {
-  const datas = cardUser.dataset
+function getLocation(card) {
+  const datas = card.dataset
   const lat = datas.lat;
   const lng = datas.lng;
   return { lat: lat, lng: lng };
 };
 
-
-
-
-function getFriendsProximity() {
+function getProximity() {
   var getCurrentGPS = new Promise(function(resolve, reject) {
     navigator.geolocation.getCurrentPosition(function(location) {
       const lat = location.coords.latitude;
@@ -50,18 +35,16 @@ function getFriendsProximity() {
   });
 
   getCurrentGPS.then(function(userLocation){
-    console.log("ta mere");
-    const cardUsers = document.querySelectorAll(".card-user");
-    cardUsers.forEach((cardUser) => {
-      const friendLocation = getFriendLocation(cardUser);
-      const distance = distanceBetween(userLocation["lat"], userLocation["lng"], friendLocation["lat"], friendLocation["lng"]);
+    const cards = document.querySelectorAll(".card-user, .card-event");
+    cards.forEach((card) => {
+      const location = getLocation(card);
+      const distance = distanceBetween(userLocation["lat"], userLocation["lng"], location["lat"], location["lng"]);
       console.log(distance);
-      const cardUserLocation = cardUser.querySelector(".card-km").innerHTML = `${Math.round(distance * 100) / 100} Km` ;
-      console.log(cardUser);
-
+      const cardLocation = card.querySelector(".card-km").innerHTML = `${Math.round(distance * 100) / 100} Km` ;
     });
-
   });
 }
 
-export { getFriendsProximity };
+
+// Converts numeric degrees to radians
+export { getProximity };
