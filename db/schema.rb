@@ -84,8 +84,8 @@ ActiveRecord::Schema.define(version: 2018_11_22_142408) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.float "lat"
-    t.float "lng"
+    t.float "latitude"
+    t.float "longitude"
     t.integer "status", default: 1
     t.string "first_name"
     t.string "last_name"

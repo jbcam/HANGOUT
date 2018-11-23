@@ -1,0 +1,8 @@
+
+  <div class="row event">
+    <% events.each do |event|  %>
+      <div class="col-md-4">
+        <%= render "shared/card_event", event: event %>
+      </div>
+    <% end %>
+  </div>

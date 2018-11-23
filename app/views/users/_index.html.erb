@@ -1,0 +1,10 @@
+
+  <div class="row people">
+    <% users.each do |user|  %>
+      <div class="col-md-4">
+        <%= render "shared/card_user", user: user %>
+      </div>
+    <% end %>
+  </div>
+
+

@@ -1,7 +1,8 @@
 import 'bootstrap/dist/js/bootstrap';
 import "bootstrap";
-import { getFriendsProximity } from "../geolocation";
+import "../plugins/flatpickr";
+import { getProximity } from "../geolocation";
+import { toggleStatus } from "../status";
 
-document.addEventListener("DOMContentLoaded", getFriendsProximity);
-
-
+document.addEventListener("DOMContentLoaded", getProximity);
+document.addEventListener("DOMContentLoaded", toggleStatus);
