@@ -1,12 +1,10 @@
-
-<div class="container">
-  <%= simple_form_for message, url: "/" do |f| %>
-
+<div class="container new-message mb-2">
+  <%= simple_form_for [conversation, message] do |f| %>
     <div class="media">
       <div class="media-body">
         <%= f.input_field :content, as: :string, class: "form-control" %>
       </div>
-      <%= f.button :button, class: "ml-2" do %>
+      <%= f.button :button, class: "ml-2 btn btn-secondary" do %>
         <i class="fab fa-telegram-plane"></i>
       <% end %>
     </div>

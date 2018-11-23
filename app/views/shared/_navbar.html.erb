@@ -4,20 +4,19 @@
     <%= image_tag "bizzy_logo.png" %>
     <!-- <img src="images/logo_bizzy.png" alt="logo"> -->
   </a>
-
   <!-- Dropdown appearing on mobile only -->
-  <div class="navbar-wagon-item">
-    <% if user_signed_in? %>
-    <div class="dropdown">
-      <%= cl_image_tag current_user.avatar.url(:avatar, secure:true), class: "avatar dropdown-toggle", id: "navbar-wagon-menu", 'data-toggle': "dropdown" %>
-      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><%= link_to 'Profile', user_path(current_user) %></li>
-        <li><a href="#">Parameters</a></li>
-        <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
-      </ul>
+  <% if user_signed_in? %>
+    <div class="navbar-wagon-item">
+      <div class="dropdown">
+        <%= cl_image_tag current_user.avatar.url(:avatar, secure:true), class: "avatar dropdown-toggle", id: "navbar-wagon-menu", 'data-toggle': "dropdown" %>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li><%= link_to 'Profile', user_path(current_user) %></li>
+          <li><a href="#">Parameters</a></li>
+          <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
+        </ul>
+      </div>
     </div>
-    <% else %>
-        <%= link_to 'sign in/register',  new_user_session_path, class:"navbar-wagon-item navbar-wagon-link" %>
-      <% end %>
-  </div>
+  <% else %>
+    <%= link_to 'sign in/register',  new_user_session_path, class:"navbar-wagon-link" %>
+  <% end %>
 </div>

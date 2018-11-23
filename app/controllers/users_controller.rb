@@ -10,12 +10,12 @@ class UsersController < ApplicationController
   def update
 
     @user = current_user
-    if @user.update(user_params)
-      flash[:notice] = 'Successfully updated'
-      redirect_to root_path
-    else
-      render :edit
-    end
+      if @user.update(user_params)
+        flash[:notice] = 'Successfully updated'
+        redirect_to root_path
+      else
+        render :edit
+      end
   end
 
 private
