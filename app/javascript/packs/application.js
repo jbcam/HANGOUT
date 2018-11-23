@@ -5,5 +5,3 @@ import { toggleStatus } from "../status";
 
 document.addEventListener("DOMContentLoaded", getProximity);
 document.addEventListener("DOMContentLoaded", toggleStatus);
-
-// toggleStatus;
