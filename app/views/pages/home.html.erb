@@ -1,6 +1,6 @@
 
  <!-- status -->
- <%= render "status" %>
+
  <!-- off line view -->
  <div class="container d-none" id="not-available">
    <div class="row">
@@ -20,23 +20,10 @@
    </div>
  </div>
 
+
+
  <!-- results -->
 <div class="container" id="available">
-  <div class="row people">
-    <% @users.each do |user|  %>
-      <div class="col-md-4">
-        <%= render "shared/card_user", user: user %>
-      </div>
-    <% end %>
-  </div>
-   <div class="row event">
-    <% @events.each do |event|  %>
-      <div class="col-md-4">
-        <%= render "shared/card_event", event: event %>
-      </div>
-    <% end %>
-  </div>
+  <%= render 'users/index', users: @users %>
 </div>
-
-<%= render 'users/index', users: @users %>
 
