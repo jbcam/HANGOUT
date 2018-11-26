@@ -1,8 +1,10 @@
 <div class="footer">
   <div class="footer-links">
+
     <%= link_to "<i class='fas fa-users' id='btn-users'></i>".html_safe, users_path, remote: true %>
     <%= link_to "<i class='fas fa-calendar-alt' id='btn-events'></i>".html_safe, events_path, remote: true %>
-    <a href="#"><i class="fas fa-comments" id="btn-messages"></i></a>
+    <%= link_to "<i class='fas fa-comments' id='btn-messages'></i>".html_safe, conversations_path %>
+
   </div>
 </div>
 
