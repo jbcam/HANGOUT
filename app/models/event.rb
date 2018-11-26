@@ -3,8 +3,6 @@ class Event < ApplicationRecord
   belongs_to :user
   has_many :attendees
   has_many :messages, as: :messageable
-end
-
 
   validates :name, :description, :address, presence: true
 
