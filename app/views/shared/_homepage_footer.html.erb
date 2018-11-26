@@ -1,0 +1,10 @@
+<div class="footer">
+  <div class="footer-links">
+
+    <%= link_to "<i class='fas fa-users #{"btn-active" if params[:event_index].nil? }' id='btn-users'></i>".html_safe, users_path, remote: true %>
+    <%= link_to "<i class='fas fa-calendar-alt #{"btn-active" if params[:event_index].present? }' id='btn-events'></i>".html_safe, events_path, remote: true %>
+    <%= link_to "<i class='fas fa-comments' id='btn-messages'></i>".html_safe, conversations_path %>
+
+  </div>
+</div>
+

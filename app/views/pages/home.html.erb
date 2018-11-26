@@ -21,12 +21,14 @@
    <%= render 'users/form_mood', user: @user %>
  </div>
 
-
-
  <!-- results -->
 <div class="container" id="available">
   <div id="home-placeholder">
-    <%= render 'users/index', users: @users %>
+    <% if params[:event_index] %>
+      <%= render 'events/index', events: Event.all %>
+    <% else %>
+      <%= render 'users/index', users: @users %>
+    <% end %>
   </div>
 </div>
 
