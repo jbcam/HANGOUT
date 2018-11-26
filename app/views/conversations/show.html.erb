@@ -1,9 +1,11 @@
 <%= render 'conversation_header', user: @conversation.recipient %>
-<div class="container">
-  <% @conversation.messages.each do |message| %>
-    <%= render  'messages/message', message: message %>
+<div class="container mt-5">
+  <% if @conversation.messages? %>
+    <% @conversation.messages.each do |message| %>
+      <%= render  'messages/message', message: message %>
+    <% end %>
   <% end %>
 </div>
-<%= render 'messages/message_form',message: @message, conversation: @conversation, class: "new-message" %>
+<%= render 'messages/message_form',message: @message, conversation: @conversation %>
 
 

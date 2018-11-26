@@ -7,7 +7,7 @@ class MessagesController < ApplicationController
     if message.save
       redirect_to conversation_path(message.messageable)
     else
-      flash[:warning] = 'Oops! something when wrong, please try again'
+      flash[:alert] = 'Oops! something when wrong, please try again'
       redirect_to conversation_path(message.messageable)
     end
   end
