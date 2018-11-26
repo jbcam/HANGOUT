@@ -3,10 +3,6 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
-  resources :chats, only: [:index, :show]
-  resources :conversations, only: [:index, :show, :create] do
-    resources :messages, only: [:create]
-  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users, only: [:index, :show, :edit, :update]
 
@@ -17,4 +13,15 @@ Rails.application.routes.draw do
   end
   resources :attendees, only: [:create]
 
+
+  # chat
+  resources :chats, only: [:index, :show]
+
+
+  # Serve websocket cable requests in-process
+  mount ActionCable.server => '/cable'
+
+  resources :conversations, only: [:index, :show, :update, :createConsumer] do
+    resources :messages, only: [:create]
+  end
 end

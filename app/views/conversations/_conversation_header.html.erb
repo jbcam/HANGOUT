@@ -1,6 +1,4 @@
 <div class="conversation-header">
   <%= cl_image_tag user.avatar.url(:avatar, secure:true), class: "avatar ml-2" %>
-  <div class="conversation-header-title ml-2">
-    <%= user.first_name %>
-  </div>
+  <div class="conversation-header-title ml-2" id="user"><%= full_name(user) %></div>
 </div>

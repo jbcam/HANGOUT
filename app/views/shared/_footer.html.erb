@@ -3,8 +3,7 @@
 
     <%= link_to "<i class='fas fa-users' id='btn-users'></i>".html_safe, users_path, remote: true %>
     <%= link_to "<i class='fas fa-calendar-alt' id='btn-events'></i>".html_safe, events_path, remote: true %>
-    <%= link_to "<i class='fas fa-comments' id='btn-messages'></i>".html_safe, conversations_path %>
-
+    <%= link_to "<span class='badge badge-pill badge-danger'>#{count_all_unread_messages(current_user)}</span><i class='fas fa-comments' id='btn-messages'></i>".html_safe, conversations_path %>
   </div>
 </div>
 

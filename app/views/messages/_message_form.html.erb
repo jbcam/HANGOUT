@@ -1,5 +1,5 @@
 <div class="new-message mb-2 px-2">
-  <%= simple_form_for [conversation, message] do |f| %>
+  <%= simple_form_for [conversation, message], remote: true do |f| %>
     <div class="media">
       <div class="media-body">
         <%= f.input_field :content, as: :string, class: "form-control" %>

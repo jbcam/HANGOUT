@@ -22,4 +22,18 @@ class ConversationsController < ApplicationController
     end
     redirect_to conversation_path(conversation)
   end
+
+  def update
+    byebug
+    @conversation = Conversation.find(params[:id])
+    @conversation.messages.reverse_each do |message|
+      return if message.read == true
+
+      message.read = true unless message.user == current_user
+    end
+    respond_to do |format|
+      format.html { redirect_to conversation_path(@conversation) }
+      format.js
+    end
+  end
 end
