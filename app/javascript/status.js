@@ -14,9 +14,7 @@ function toggleStatus() {
   const userAvailable = document.getElementById("available");
   const toggleActive = document.querySelector(".switch");
 
-
-
-  var checkbox = toggleActive.querySelector("input[name=checkbox]");
+  var checkbox = toggleActive.querySelector(".input[name=checkbox]");
 
   checkbox.addEventListener( 'change', function() {
       if(this.checked) {
