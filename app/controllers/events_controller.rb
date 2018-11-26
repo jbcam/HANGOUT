@@ -19,7 +19,7 @@ class EventsController < ApplicationController
       flash[:notice] = "Event created"
       redirect_to @event
     else
-      flash[:warning] = "Oops! something when wrong, please try again"
+      flash[:alert] = "Oops! something when wrong, please try again"
       render 'new'
     end
   end
