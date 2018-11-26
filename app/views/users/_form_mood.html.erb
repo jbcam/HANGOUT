@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="form--mood">
+  <%= simple_form_for user, url: user_path(user), method: :patch  do |f| %>
+    <%= f.input :mood %>
+    <%= f.input :category_id, as: :select, collection: Category.all.map { |r| [r.name.capitalize, r.id] }, include_blank: true %>
+    <%= f.submit "Push your mood", class: "btn btn-primary" %>
+  <% end %>
+  </div>
+</div>
