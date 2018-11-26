@@ -14,7 +14,7 @@
   <body>
     <%= render 'shared/navbar' unless url_for().split("/")[-2] == "conversations" %>
     <%= render 'shared/flashes' %>
-    <%= render 'status' if current_page?(root_path) %>
+    <%= render 'categories' if current_page?(root_path) %>
     <%= yield %>
     <% if current_page?(root_path) %>
       <%= render 'shared/homepage_footer' %>
