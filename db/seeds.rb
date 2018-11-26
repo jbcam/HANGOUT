@@ -7,6 +7,7 @@ Event.destroy_all
 User.destroy_all
 Category.destroy_all
 Badge.destroy_all
+Conversation.destroy_all
 
 puts 'Creating seed'
 

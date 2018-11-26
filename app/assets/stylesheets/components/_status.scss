@@ -1,24 +1,35 @@
+.status {
+  border-bottom: 1px solid $light-gray;
+}
 
-$height : 20px;
-$width: 35px;
+.status i {
+  font-size: 30px;
+}
+
+
+
+
+//toggle button
+$height : 30px;
+$width: 50px;
+
 .switch {
+
   position: relative;
   display: inline-block;
   width: $width;
   height: $height;
-  margin-top: 4px;
-  margin-left: 4px;
 
-  input[type="checkbox"]{
+  input[type="checkbox"] {
     display:none;
   }
+
   input:checked + .knob {
     animation: colorChange 0.4s linear forwards;
-
   }
+
   input:checked + .knob:before {
     animation: turnON 0.4s linear forwards;
-
   }
 
 }

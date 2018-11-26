@@ -1,7 +1,7 @@
 class ConversationsController < ApplicationController
   def index
-    current_user.events
-    current_users.conversations
+    @conversations = current_user.sender_conversations + current_user.recipient_conversations
+    # .each { |c| @conversation << c }
   end
 
   def show
@@ -11,13 +11,15 @@ class ConversationsController < ApplicationController
   end
 
   def create
-    conversation = Conversation.new
-    conversation.sender = current_user
-    conversation.recipient = User.find(params[:recepient_id])
-    if conversation.save(conversation)
-      redirect_to conversation_path(conversation)
-    else
-      flash[:warning] = 'Oops! something when wrong, please try again'
+    recipient = User.find(params[:recipient_id])
+    # check if users already have a conversation
+    conversation = current_user.conversation(recipient)
+    if conversation.nil?
+      conversation = Conversation.new
+      conversation.sender = current_user
+      conversation.recipient = recipient
+      flash[:alert] = 'Oops! something went wrong, please try again' unless conversation.save(conversation)
     end
+    redirect_to conversation_path(conversation)
   end
 end
