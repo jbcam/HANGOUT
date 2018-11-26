@@ -1,0 +1,7 @@
+<div class="container">
+  <div class="list-group">
+    <% @conversations.each do |conversation| %>
+      <%= link_to conversation_partner(conversation).first_name, conversation_path(conversation), class:  "list-group-item list-group-item-action" %>
+    <% end %>
+  </div>
+</div>
