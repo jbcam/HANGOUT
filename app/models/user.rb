@@ -5,12 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   enum status: { unavailable: 0, available: 1 }
-  belongs_to :category
+  belongs_to :category, optional: true
   has_many :events
   has_many :sender_conversations, class_name: "Conversation", foreign_key: "sender_id", dependent: :destroy
   has_many :recipient_conversations, class_name: "Conversation", foreign_key: "recipient_id", dependent: :destroy
 
-  validates :first_name, :last_name, :email, presence: true
+  #validates :first_name, :last_name, :email, presence: true
 
   mount_uploader :avatar, PhotoUploader
 
