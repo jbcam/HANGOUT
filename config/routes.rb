@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   # Serve websocket cable requests in-process
   mount ActionCable.server => '/cable'
 
-  resources :conversations, only: [:index, :show, :update, :createConsumer] do
+  resources :conversations, only: [:index, :show, :update, :create, :createConsumer] do
     resources :messages, only: [:create]
   end
 end

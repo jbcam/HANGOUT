@@ -12,6 +12,8 @@ const updateReadMessages = () => {
     // });
 };
 
-const input = document.getElementById("message_content");
-input.addEventListener('focus', updateReadMessages());
+try {
+  const input = document.getElementById("message_content");
+  input.addEventListener('focus', updateReadMessages());
+} catch(e) {};
 
