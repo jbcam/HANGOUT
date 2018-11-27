@@ -10,6 +10,16 @@ class User < ApplicationRecord
   has_many :sender_conversations, class_name: "Conversation", foreign_key: "sender_id", dependent: :destroy
   has_many :recipient_conversations, class_name: "Conversation", foreign_key: "recipient_id", dependent: :destroy
 
+  include PgSearch
+  pg_search_scope :search_users_by_category_id,
+    #against: [:category_id],
+    associated_against: {
+      category: [:name]
+    },
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
+
   #validates :first_name, :last_name, :email, presence: true
 
   mount_uploader :avatar, PhotoUploader

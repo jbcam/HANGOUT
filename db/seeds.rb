@@ -16,27 +16,27 @@ puts 'Creating seed'
 category_attributes = [
   {
     name: 'movie',
-    picto: 'movie.png'
+    picto: 'fas fa-film'
   },
   {
     name: 'sport',
-    picto: 'sport.png'
+    picto: 'fas fa-dumbbell'
   },
   {
     name: 'music',
-    picto: 'music.png'
+    picto: 'fas fa-music'
   },
   {
     name: 'sightseeing',
-    picto: 'sightseeing.png'
+    picto: 'fas fa-university'
   },
   {
     name: 'drink',
-    picto: 'drink.png'
+    picto: 'fas fa-glass-martini'
   },
   {
     name: 'meal',
-    picto: 'meal.png'
+    picto: 'fas fa-utensils'
   }
 ]
 
