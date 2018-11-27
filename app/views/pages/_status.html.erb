@@ -11,18 +11,28 @@
 
   <div class="collapse" id="collapseExample">
     <div class="d-flex p-3 filter">
+
       <div id="filter_categories">
         <% if params[:event_index] %>
           <%= render 'events/filter' %>
         <% else %>
           <%= render 'users/filter' %>
         <% end %>
+
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+        <label ><i class="fas fa-utensils picto-small"></i></label>
+        <label ><i class="fas fa-glass-martini picto-small"></i></label>
+        <label ><i class="fas fa-film picto-small"></i></label>
+        <label ><i class="fas fa-university picto-small"></i></label>
+        <label ><i class="fas fa-dumbbell picto-small"></i></label>
+        <label ><i class="fas fa-music picto-small"></i></label>
+
       </div>
       <div class="range-slider">
         <input class="range-slider__range" type="range" value="100" min="0" max="150">
         <span class="range-slider__value">100</span>
       </div>
-
     </div>
   </div>
 </div>

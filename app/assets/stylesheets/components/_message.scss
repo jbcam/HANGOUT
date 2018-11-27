@@ -4,9 +4,14 @@
   overflow-wrap: break-word;
 }
 
-.message-group:first-child {
-  margin-top: 80px !important;
+#messages {
+  margin-top: 80px;
+  margin-bottom: 130px;
 }
+
+// .message-group:first-child {
+//   margin-top: 80px !important;
+// }
 .me {
   background: $light-blue;
 }

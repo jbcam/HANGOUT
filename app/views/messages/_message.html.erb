@@ -6,9 +6,9 @@
     <%= cl_image_tag message.user.avatar.url(:avatar, secure:true), class: "avatar ml-1" %>
   </div>
 <% else %>
-  <div class="message-group d-flex justify-content-start align-items-end">
+  <div class="message-group d-flex justify-content-start align-items-end my-1">
     <%= cl_image_tag message.user.avatar.url(:avatar, secure:true), class: "avatar mr-1" %>
-    <div class="message friend flex-grow-1 p-2">
+    <div class="message friend p-2">
       <%= message.content %>
     </div>
   </div>

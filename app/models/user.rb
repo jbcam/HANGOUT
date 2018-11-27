@@ -34,4 +34,11 @@ class User < ApplicationRecord
     end
     return nil
   end
+
+  def unread_messages
+    count = 0
+    sender_conversations.each { |conversation| count += conversation.unread_messages(self) }
+    recipient_conversations.each { |conversation| count += conversation.unread_messages(self) }
+    count
+  end
 end

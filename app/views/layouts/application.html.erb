@@ -16,12 +16,16 @@
     <%= render 'shared/flashes' %>
     <%= render 'status' if current_page?(root_path) %>
     <%= yield %>
-    <% if current_page?(root_path) %>
-      <%= render 'shared/homepage_footer' %>
-    <% else %>
-      <%= render 'shared/conversation_footer' %>
+
+    <% if user_signed_in? %>
+      <% if current_page?(root_path) %>
+        <%= render 'shared/homepage_footer' %>
+      <% else %>
+        <%= render 'shared/conversation_footer' %>
+      <% end %>
     <% end %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>
 </html>
+
