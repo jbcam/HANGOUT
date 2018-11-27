@@ -21,6 +21,8 @@ gem 'carrierwave', '~> 1.2'
 gem "geocoder"
 gem 'faker'
 
+gem 'pg_search'
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
