@@ -24,13 +24,13 @@ class UsersController < ApplicationController
   end
 
   def save_coordinates
-    latitude = params[:user][:latitude]
-    longitude = params[:user][:longitude]
-    current_user.update(latitude: latitude, longitude: longitude)
+    latitude = params[:lat]
+    longitude = params[:lng]
+    current_user.update!(latitude: latitude, longitude: longitude)
 
      respond_to do |format|
         format.html { redirect_to root_path }
-        format.js  # <-- will render `app/views/reviews/create.js.erb`
+        format.js
       end
   end
 

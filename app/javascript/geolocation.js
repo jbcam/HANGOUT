@@ -36,9 +36,25 @@ function getProximity() {
 
   getCurrentGPS.then(function(userLocation){
     const cards = document.querySelectorAll(".card-user, .card-event");
-    document.getElementById("user_latitude").value = userLocation['lat'];
-    document.getElementById("user_longitude").value = userLocation['lng'];
-    document.querySelector(".toto").submit();
+    // document.getElementById("user_latitude").value = userLocation['lat'];
+    // document.getElementById("user_longitude").value = userLocation['lng'];
+    // document.querySelector(".toto").submit();
+
+    //push coordinateconsole.log(JSON.stringify(userLocation));
+    // ${document.URL}
+    fetch('save-coordinates' , {
+       method: 'POST',
+       headers: {
+         'Content-Type' : 'application/json',
+         'X-CSRF-Token' : Rails.csrfToken()
+       },
+       body: JSON.stringify(userLocation)
+    })
+      .then(response => response.text())
+      // .then(response => response.json())
+      .then((data) => {
+        data;
+   });
 
     cards.forEach((card) => {
       const location = getLocation(card);

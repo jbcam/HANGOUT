@@ -1,11 +1,11 @@
 <div class="test-toto">
-  <%= simple_form_for current_user, url: save_coordinates_path, method: :post, remote: true, html: {class: :toto} do |f| %>
-    <%= f.input :latitude %>
-    <%= f.input :longitude %>
-    <%= f.button :submit %>
-  <% end %>
+  <%#= simple_form_for current_user, url: save_coordinates_path, method: :post, remote: true, html: {class: :toto} do |f| %>
+    <%#= f.input :latitude %>
+    <%#= f.input :longitude %>
+    <%#= f.button :submit %>
+  <%# end %>
 
-  <%= current_user.latitude %>
-  <%= current_user.longitude %>
+  lat : <%= current_user.latitude if current_user %>
+  lng : <%= current_user.longitude if current_user %>
 </div>
 
