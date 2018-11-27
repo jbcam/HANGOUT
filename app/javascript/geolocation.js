@@ -1,4 +1,4 @@
-function distanceBetween(lat1, lon1, lat2, lon2) {
+ function distanceBetween(lat1, lon1, lat2, lon2) {
   var R = 6371; // km
   var dLat = toRad(lat2-lat1);
   var dLon = toRad(lon2-lon1);
