@@ -5,7 +5,9 @@
       <div class="d-flex justify-content-start align-items-center">
         <%= cl_image_tag conversation_partner(conversation).avatar.url(:avatar, secure:true), class: "avatar mr-2" %>
         <div class="flex-grow-1"><%= full_name(conversation_partner(conversation)) %></div>
-      <span class="badge badge-primary badge-pill"><%= count_unread_messages(conversation) %></span>
+        <% if conversation.unread_messages(current_user) > 0 %>
+          <span class="badge badge-danger badge-pill"><%= conversation.unread_messages(current_user) %></span>
+        <% end %>
       </div>
        <%= link_to '', conversation_path(conversation), class: "message-link" %>
     </div>
