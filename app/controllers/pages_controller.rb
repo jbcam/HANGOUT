@@ -8,7 +8,7 @@ class PagesController < ApplicationController
     elsif params[:event_index]
       @events = Event.all
     else
-      @users = User.all
+      @users = User.where.not(id: current_user.id)
     end
   end
 
