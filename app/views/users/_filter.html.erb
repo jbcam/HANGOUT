@@ -1,0 +1,22 @@
+<div class="custom-control custom-radio custom-control-inline">
+  <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+  <%#= "coco" if params[:event_index]%>
+  <%= link_to root_path(query: "meal", user_index: true), method: :get do %>
+    <i class="fas fa-utensils picto-small"></i>
+  <% end %>
+  <%= link_to root_path(query: "drink", user_index: true), method: :get do %>
+    <i class="fas fa-glass-martini picto-small"></i>
+  <% end %>
+  <%= link_to root_path(query: "movie", user_index: true), method: :get do %>
+    <i class="fas fa-film picto-small"></i>
+  <% end %>
+  <%= link_to root_path(query: "sightseeing", user_index: true), method: :get do %>
+    <i class="fas fa-university picto-small"></i>
+  <% end %>
+  <%= link_to root_path(query: "sport", user_index: true), method: :get do %>
+    <i class="fas fa-dumbbell picto-small"></i>
+  <% end %>
+  <%= link_to root_path(query: "music", user_index: true), method: :get do %>
+    <i class="fas fa-music picto-small"></i>
+  <% end %>
+</div>

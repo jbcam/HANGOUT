@@ -10,11 +10,11 @@
 //   firstDiv.hidden = false;
 // });
 function toggleStatus() {
+  try {
   const notAvailable = document.getElementById("not-available");
   const userAvailable = document.getElementById("available");
   const toggleActive = document.querySelector(".switch");
-
-  var checkbox = toggleActive.querySelector(".input[name=checkbox]");
+  const checkbox = toggleActive.querySelector("input");
 
   checkbox.addEventListener( 'change', function() {
       if(this.checked) {
@@ -27,6 +27,7 @@ function toggleStatus() {
         userAvailable.classList.add("d-none");
       }
   });
+  } catch(e) {};
 };
 
 export { toggleStatus };
