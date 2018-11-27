@@ -1,11 +1,13 @@
 <div class="footer">
   <div class="footer-links">
-
-
+    <%= link_to "<i class='fas fa-users' id='btn-users'></i>".html_safe, users_path, remote: true %>
+    <%= link_to "<i class='fas fa-calendar-alt' id='btn-events'></i>".html_safe, events_path, remote: true %>
     <%= link_to "<i class='fas fa-users' id='btn-users'></i>".html_safe, root_path %>
     <%= link_to "<i class='fas fa-calendar-alt' id='btn-events'></i>".html_safe, root_path(event_index: true) %>
-    <%= link_to "<i class='fas fa-comments btn-active' id='btn-messages'></i>".html_safe, conversations_path %>
-
+    <div class="badge-container">
+       <%= link_to "<i class='fas fa-comments' id='btn-messages'></i>".html_safe, conversations_path %>
+      <%= render 'shared/footer_badge' %>
+    </div>
   </div>
 </div>
 
