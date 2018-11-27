@@ -36,10 +36,14 @@ function getProximity() {
 
   getCurrentGPS.then(function(userLocation){
     const cards = document.querySelectorAll(".card-user, .card-event");
+    document.getElementById("user_latitude").value = userLocation['lat'];
+    document.getElementById("user_longitude").value = userLocation['lng'];
+    document.querySelector(".toto").submit();
+
     cards.forEach((card) => {
       const location = getLocation(card);
       const distance = distanceBetween(userLocation["lat"], userLocation["lng"], location["lat"], location["lng"]);
-      console.log(distance);
+      console.log(userLocation["lng"]);
       const cardLocation = card.querySelector(".card-km").innerHTML = `${Math.round(distance * 100) / 100} Km` ;
     });
   });
