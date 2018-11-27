@@ -11,6 +11,7 @@
 // });
 function toggleStatus() {
   const notAvailable = document.getElementById("not-available");
+  consoloe.log(notAvailable)
   const userAvailable = document.getElementById("available");
   const toggleActive = document.querySelector(".switch");
 
