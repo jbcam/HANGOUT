@@ -42,29 +42,31 @@ function getProximity() {
 
     //push coordinateconsole.log(JSON.stringify(userLocation));
     // ${document.URL}
-    fetch('save-coordinates' , {
-       method: 'POST',
-       headers: {
-         'Content-Type' : 'application/json',
-         'X-CSRF-Token' : Rails.csrfToken()
-       },
-       body: JSON.stringify(userLocation)
-    })
-      .then(response => response.text())
-      // .then(response => response.json())
-      .then((data) => {
-        data;
-   });
+    if (location.pathname == "/") {
 
-    cards.forEach((card) => {
-      const location = getLocation(card);
-      const distance = distanceBetween(userLocation["lat"], userLocation["lng"], location["lat"], location["lng"]);
-      console.log(userLocation["lng"]);
-      const cardLocation = card.querySelector(".card-km").innerHTML = `${Math.round(distance * 100) / 100} Km` ;
-    });
+      fetch('save-coordinates' , {
+         method: 'POST',
+         headers: {
+           'Content-Type' : 'application/json',
+           'X-CSRF-Token' : Rails.csrfToken()
+         },
+         body: JSON.stringify(userLocation)
+      })
+        .then(response => response.text())
+        // .then(response => response.json())
+        .then((data) => {
+          data;
+        });
+
+      cards.forEach((card) => {
+        const location = getLocation(card);
+        const distance = distanceBetween(userLocation["lat"], userLocation["lng"], location["lat"], location["lng"]);
+        console.log(userLocation["lng"]);
+        const cardLocation = card.querySelector(".card-km").innerHTML = `${Math.round(distance * 100) / 100} Km` ;
+      });
+    }
   });
-}
-
+};
 
 // Converts numeric degrees to radians
 export { getProximity };

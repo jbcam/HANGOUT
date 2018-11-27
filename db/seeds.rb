@@ -97,7 +97,9 @@ user_attributes = [
   city: 'London',
   bio: Faker::Lorem.sentence(3),
   job: 'Bread Scientist',
-  category: Category.fourth
+  category: Category.fourth,
+  latitude: 44.8268667,
+  longitude: 0.5744507
 },
 {
   first_name: 'Arthur',
@@ -123,7 +125,10 @@ user_attributes = [
   city: 'Santiago',
   bio: Faker::Lorem.sentence(3),
   job: 'Entrepreneur',
-  category: Category.first
+  category: Category.first,
+  latitude: 46.8127079,
+  longitude: 0.5397638
+
 }
 ]
 
