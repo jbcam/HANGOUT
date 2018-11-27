@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:save_coordinates]
   def index
-    @users = User.all
+    @users = User.where.not(id: current_user.id)
   end
 
   def edit
