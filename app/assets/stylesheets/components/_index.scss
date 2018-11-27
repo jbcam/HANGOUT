@@ -1,7 +1,8 @@
 // Import your components CSS files here.
 @import "alert";
 @import "navbar";
-@import "footer";
+@import "homepage_footer";
+@import "conversation_footer";
 @import "avatar";
 @import "card";
 @import "card_user";
@@ -10,5 +11,7 @@
 @import "message";
 @import "filters";
 @import "status";
+@import "form_event";
+@import "form_sign_in";
 @import "conversation_header";
 @import "badge_notification";

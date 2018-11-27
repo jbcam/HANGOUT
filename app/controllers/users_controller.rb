@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  skip_before_action :verify_authenticity_token, only: [:save_coordinates]
   def index
     @users = User.all
   end
@@ -23,9 +23,20 @@ class UsersController < ApplicationController
       end
   end
 
+  def save_coordinates
+    latitude = params[:lat]
+    longitude = params[:lng]
+    current_user.update!(latitude: latitude, longitude: longitude)
+
+     respond_to do |format|
+        format.html { redirect_to root_path }
+        format.js
+      end
+  end
+
 private
 
   def user_params
-    params.require(:user).permit(:email, :first_name, :last_name, :linkedin, :avatar, :bio, :city, :job)
+    params.require(:user).permit(:email, :first_name, :last_name, :linkedin, :avatar, :bio, :city, :job, :category_id, :mood)
   end
 end
