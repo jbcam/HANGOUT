@@ -1,0 +1,18 @@
+<div class="container d-none" id="not-available">
+   <div class="row">
+     <div class="col-md-4 offset-md-4 text-center">
+        <div><%= pluralize(users.count, 'user') %> are available to hang out </div>
+        <div class="avatars">
+          <% users.first(4).each do |user| %>
+            <span class="avatar-group">
+              <%= cl_image_tag user.avatar.url(:avatar, secure:true), class: "avatar-large avatar-bordered"  %>
+            </span>
+          <% end %>
+
+        </div>
+         <p class="ml-1 mb-0">+<%= users.count - 4 %></p>
+        <div>switch on to connect</div>
+     </div>
+   </div>
+   <%= render 'users/form_mood', user: current_user %>
+ </div>
