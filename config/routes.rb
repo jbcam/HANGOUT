@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :events, only: [:index, :show, :new, :create, :edit, :update]
 
   namespace :my do
-    resources :events, only: [:index]
+    resources :profile, only: [:index]
   end
 
   resources :attendees, only: [:create]
