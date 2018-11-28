@@ -2,7 +2,7 @@
   <div class="row">
     <!-- top square -->
       <div class="col d-flex align-items-center p-4">
-        <%=  image_tag @event.category.picto, width:"50" %>
+        <i class='<%= event.category.picto%> picto-small card-event-mood'></i>
         <h3 class="flex-grow-1 text-center">
           <%= @event.name %>
         </h3>
