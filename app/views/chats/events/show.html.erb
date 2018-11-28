@@ -2,10 +2,10 @@
 <div class="container" id="messages">
   <% if @event.messages.any? %>
     <% @event.messages.sort_by { |message| message.created_at }.each do |message| %>
-      <%= render 'messages/message', message: message %>
+      <%= render 'chats/messages/message', message: message %>
     <% end %>
   <% end %>
 </div>
-<%= render 'messages/message_form',message: @message, channel: @event %>
+<%= render 'chats/messages/message_form',message: @message, channel: @event %>
 
 
