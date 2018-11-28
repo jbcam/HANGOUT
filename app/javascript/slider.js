@@ -1,19 +1,13 @@
-var rangeSlider = function(){
-  var slider = document.querySelectorAll('.range-slider'),
-      range = document.querySelectorAll('.range-slider__range'),
-      value = document.querySelectorAll('.range-slider__value');
+import Slider from 'bootstrap-slider';
+import 'bootstrap-slider/dist/css/bootstrap-slider';
 
-  slider.each(function(){
+function startSlide() {
+  var input = document.querySelector("input.slider");
+  var mySlider = new Slider(input);
 
-    value.each(function(){
-      var value = this.prev().attr('value');
-      this.html(value);
-    });
+  mySlider.on('slideStop', function() {
+    console.log(mySlider.getValue())
+  })
+}
 
-    range.on('input', function(){
-      this.next(value).html(this.value);
-    });
-  });
-};
-
-rangeSlider();
+export { startSlide };
