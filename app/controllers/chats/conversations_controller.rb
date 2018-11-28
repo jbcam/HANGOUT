@@ -1,9 +1,5 @@
-class ConversationsController < ApplicationController
+class Chats::ConversationsController < ApplicationController
   before_action :set_conversation, only: [:show, :update]
-
-  def index
-    @conversations = current_user.sender_conversations + current_user.recipient_conversations
-  end
 
   def show
     @message = Message.new
@@ -19,7 +15,7 @@ class ConversationsController < ApplicationController
       conversation.recipient = recipient
       flash[:alert] = 'Oops! something went wrong, please try again' unless conversation.save(conversation)
     end
-    redirect_to conversation_path(conversation)
+    redirect_to chats_conversation_path(conversation)
   end
 
   def update
@@ -27,11 +23,9 @@ class ConversationsController < ApplicationController
       message.read = true unless message.user == current_user
       message.save!
     end
-
     # @unread_messages = current_user.unread_messages;
-
     respond_to do |format|
-      format.html { redirect_to conversation_path(@conversation) }
+      # format.html { redirect_to chats_conversation_path(@conversation) }
       format.js
     end
   end

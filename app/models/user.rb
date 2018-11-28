@@ -39,8 +39,8 @@ class User < ApplicationRecord
 
   def unread_messages
     count = 0
-    sender_conversations.each { |conversation| count += conversation.unread_messages(self) }
-    recipient_conversations.each { |conversation| count += conversation.unread_messages(self) }
+    sender_conversations.each { |conversation| count += 1 if conversation.unread_messages(self).positive? }
+    recipient_conversations.each { |conversation| count += 1 if conversation.unread_messages(self).positive? }
     count
   end
 end

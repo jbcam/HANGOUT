@@ -1,0 +1,17 @@
+
+ <!-- status -->
+ <!-- off line view -->
+
+ <%= render 'pages/offline', users: @users if current_user.unavailable? && @users %>
+
+ <!-- results -->
+<div class="container <%= 'd-none' if current_user.unavailable? %> " id="available">
+  <div id="home-placeholder">
+    <% if params[:event_index] %>
+      <%= render 'events/index', events: @events %>
+    <% else %>
+      <%= render 'users/index', users: @users %>
+    <% end %>
+  </div>
+</div>
+

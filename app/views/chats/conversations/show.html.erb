@@ -2,11 +2,11 @@
 <div class="container" id="messages">
   <% if @conversation.messages.any? %>
     <% @conversation.messages.each do |message| %>
-      <%= render 'messages/message', message: message %>
+      <%= render 'chats/messages/message', message: message %>
     <% end %>
   <% end %>
 </div>
 
-<%= render 'conversations/add_one_message' %>
-<%= render 'messages/message_form',message: @message, channel: @conversation %>
+<%= render 'add_event_button' %>
+<%= render 'chats/messages/message_form',message: @message, channel: @conversation %>
 
