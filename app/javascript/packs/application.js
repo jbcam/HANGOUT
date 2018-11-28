@@ -10,6 +10,6 @@ import { buttonsColor } from "../btn_footer";
 import { tabColor } from "../tab";
 
 document.addEventListener("DOMContentLoaded", getProximity);
-document.addEventListener("DOMContentLoaded", toggleStatus);
+//document.addEventListener("DOMContentLoaded", toggleStatus);
 document.addEventListener("DOMContentLoaded", tabColor);
 buttonsColor();

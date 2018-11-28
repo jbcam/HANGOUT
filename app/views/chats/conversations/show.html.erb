@@ -1,3 +1,4 @@
+
 <%= render 'conversation_header', user: conversation_partner(@conversation) %>
 <div class="container" id="messages">
   <% if @conversation.messages.any? %>
@@ -9,4 +10,20 @@
 
 <%= render 'add_event_button' %>
 <%= render 'chats/messages/message_form',message: @message, channel: @conversation %>
+
+<% content_for :after_js do  %>
+  <script>
+    App.messages = App.cable.subscriptions.create({
+      channel: 'MessagesChannel',
+      conversation_id: <%= @conversation.id %>
+    }, {
+      received: function(data) {
+        document.getElementById("messages").insertAdjacentHTML("beforeend", data.message_partial);
+        window.scrollTo(0,document.body.scrollHeight);
+        return document.getElementById("new_message").reset();
+      }
+
+    });
+  </script>
+<% end %>
 

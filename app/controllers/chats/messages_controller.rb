@@ -11,10 +11,16 @@ class Chats::MessagesController < ApplicationController
         format.html { redirect_to conversation_path(message.conversation) }
         format.js
       end
+
       ActionCable.server.broadcast 'messages',
-      sender: current_user.id,
-      content: message.content,
-      avatar: message.user.avatar.url(:avatar, secure: true)
+        conversation_id: message.messageable.id,
+        message_partial: ApplicationController.renderer.render(
+          partial: 'chats/messages/message',
+          locals: {
+            current_user: current_user,
+            message: message
+          }
+        )
       head :ok
     else
       flash[:alert] = 'Oops! something when wrong, please try again'
@@ -22,6 +28,9 @@ class Chats::MessagesController < ApplicationController
   end
 
   private
+
+
+
 
   def message_params
     params.require(:message).permit(:content, :messageable_id, :messageable_type)
