@@ -1,1 +1,9 @@
-<%= @channels %>
+<div class="container">
+  <div class="list-group">
+    <% @channels.each do |channel| %>
+    <div class="list-group-item list-group-item-action">
+      <%= render 'channel', channel: channel %>
+    </div>
+    <% end %>
+  </div>
+</div>
