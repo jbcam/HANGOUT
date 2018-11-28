@@ -2,6 +2,7 @@ class Event < ApplicationRecord
   belongs_to :category
   belongs_to :user
   has_many :attendees
+  has_many :users, through: :attendees
   has_many :messages, as: :messageable
   has_many :messages, as: :messageable, dependent: :destroy
 

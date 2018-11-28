@@ -6,7 +6,9 @@ class User < ApplicationRecord
 
   enum status: { unavailable: 0, available: 1 }
   belongs_to :category, optional: true
-  has_many :events
+  has_many :attendees
+  has_many :events, through: :attendees
+  has_many :hosted_events
   has_many :sender_conversations, class_name: "Conversation", foreign_key: "sender_id", dependent: :destroy
   has_many :recipient_conversations, class_name: "Conversation", foreign_key: "recipient_id", dependent: :destroy
 
