@@ -11,13 +11,15 @@ Rails.application.routes.draw do
   end
   post "/save-coordinates", to: "users#save_coordinates"
 
-  resources :events, only: [:index, :show, :new, :create, :edit, :update]
+  resources :events, only: [:index, :show, :new, :create, :edit, :update] do
+    resources :attendees, only: [:create]
+  end
+
 
   namespace :my do
     resources :profile, only: [:index]
   end
 
-  resources :attendees, only: [:create]
 
 
   # Serve websocket cable requests in-process
