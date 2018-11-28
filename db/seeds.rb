@@ -128,7 +128,6 @@ user_attributes = [
   category: Category.first,
   latitude: 46.8127079,
   longitude: 0.5397638
-
 }
 ]
 

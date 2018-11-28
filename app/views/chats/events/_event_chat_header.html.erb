@@ -1,0 +1,14 @@
+<div class="conversation-header justify-content-arround">
+    <div class="avatars ml-2">
+      <% @event.attendees.first(4).each do |attendee| %>
+        <span class="avatar-group">
+          <%= cl_image_tag attendee.user.avatar.url(:avatar, secure:true), class: "avatar avatar-large"  %>
+        </span>
+      <% end %>
+    </div>
+  <% if @event.attendees.size > 4 %>
+    <p class="ml-1 mb-0">+<%= @event.attendees.size - 4 %></p>
+  <% end %>
+  <div class="conversation-header-title ml-3"><%= "#{@event.name} - #{@event.starts_at.strftime('%d %b')}" %></div>
+  <div class="d-none" id="current_user"><%= current_user.id %></div>
+</div>

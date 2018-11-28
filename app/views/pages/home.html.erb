@@ -1,17 +1,3 @@
-
- <!-- status -->
- <!-- off line view -->
-
- <%= render 'pages/offline', users: @users if @users %>
-
- <!-- results -->
-<div class="container" id="available">
-  <div id="home-placeholder">
-    <% if params[:event_index] %>
-      <%= render 'events/index', events: @events %>
-    <% else %>
-      <%= render 'users/index', users: @users %>
-    <% end %>
-  </div>
+<div id='home-page'>
+  <%= render 'pages/home' %>
 </div>
-
