@@ -25,6 +25,7 @@ class EventsController < ApplicationController
       attendee.event = @event
       attendee.user = current_user
       if attendee.save
+        send_create_message(@event)
         flash[:notice] = "Event created"
         redirect_to @event and return
       end
@@ -40,6 +41,15 @@ class EventsController < ApplicationController
   end
 
   private
+
+  def send_create_message(event)
+    message = Message.new
+    message.user = current_user
+    message.messageable = event
+    message.content = "#{current_user.first_name} has created the event"
+    message.system_message = true
+    message.save
+  end
 
   def event_params
     params.require(:event).permit(:name, :description, :address,:link, :category_id, :starts_at, :ends_at)

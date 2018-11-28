@@ -11,9 +11,21 @@
   margin-bottom: 0;
 }
 
+.control a {
+  color: $dark;
+}
+
 .control:hover {
   color: $blue;
 
+}
+
+.control-active  {
+  color: $blue;
+}
+
+.control-active a {
+  color: $blue;
 }
 
 .info p:last-child {
@@ -32,5 +44,4 @@
 
 .event-category {
   font-size: 30px;
-
 }
