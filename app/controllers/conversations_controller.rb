@@ -23,12 +23,13 @@ class ConversationsController < ApplicationController
   end
 
   def update
-    @conversation.messages.reverse_each do |message|
-      return if message.read
-
-      message.read = true unless message.user.id == current_user.id
+    @conversation.messages.where.not(read: true).each do |message|
+      message.read = true unless message.user == current_user
       message.save!
     end
+
+    # @unread_messages = current_user.unread_messages;
+
     respond_to do |format|
       format.html { redirect_to conversation_path(@conversation) }
       format.js

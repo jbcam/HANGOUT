@@ -12,12 +12,16 @@ Rails.application.routes.draw do
   namespace :my do
     resources :events, only: [:index]
   end
+
   resources :attendees, only: [:create]
 
 
   # chat
-  resources :chats, only: [:index, :show]
-
+  namespace :chats, only: [:index] do
+    resources :events, only: [:show] do
+      resources :messages, only: [:create]
+    end
+  end
 
   # Serve websocket cable requests in-process
   mount ActionCable.server => '/cable'

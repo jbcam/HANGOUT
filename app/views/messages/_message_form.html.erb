@@ -1,12 +1,27 @@
-<div class="new-message mb-2 px-2">
-  <%= simple_form_for [conversation, message], remote: true do |f| %>
-    <div class="media">
-      <div class="media-body">
-        <%= f.input_field :content, as: :string, class: "form-control" %>
+<% if channel.class == Conversation %>
+  <div class="new-message mb-2 px-2">
+    <%= simple_form_for [channel, message], remote: true do |f| %>
+      <div class="media">
+        <div class="media-body">
+          <%= f.input_field :content, as: :string, class: "form-control" %>
+        </div>
+        <%= f.button :button, class: "ml-2 btn btn-secondary" do %>
+          <i class="fab fa-telegram-plane"></i>
+        <% end %>
       </div>
-      <%= f.button :button, class: "ml-2 btn btn-secondary" do %>
-        <i class="fab fa-telegram-plane"></i>
-      <% end %>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+<% else %>
+ <div class="new-message mb-2 px-2">
+    <%= simple_form_for [:chats, channel, message], remote: true do |f| %>
+      <div class="media">
+        <div class="media-body">
+          <%= f.input_field :content, as: :string, class: "form-control" %>
+        </div>
+        <%= f.button :button, class: "ml-2 btn btn-secondary" do %>
+          <i class="fab fa-telegram-plane"></i>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
