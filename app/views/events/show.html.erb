@@ -2,7 +2,7 @@
   <div class="row">
     <!-- top square -->
       <div class="col d-flex align-items-center p-4">
-        <%=  image_tag @event.category.picto, width:"50" %>
+        <i class='<%= @event.category.picto%> picto-small card-event-mood'></i>
         <h3 class="flex-grow-1 text-center">
           <%= @event.name %>
         </h3>
@@ -54,7 +54,7 @@
   <!-- attendees -->
     <div class="row">
       <div class="col d-flex align-items-center p-3">
-        <%= cl_image_tag current_user.avatar.url(:avatar, secure:true), class: " avatar-large avatar-bordered" %>
+        <%= cl_image_tag @event.user.avatar.url(:avatar, secure:true), class: "avatar-large avatar-bordered" %>
          <div class="flex-grow-1 pl-1">
           organized by <%= @event.user.first_name %>
         </div>
@@ -62,16 +62,23 @@
     </div>
     <!-- rows -->
     <div class="row">
-      <div class="col d-flex align-items-center p-3 border-bt">
+      <div class="col d-flex align-items-center p-3 border-bt ">
         <%= render 'shared/attendees_avatars', attendees: @event.attendees %>
-        <div class="flex-grow-1 pl-1">
+        <div class="flex-grow-1 pl-1" >
           <%= pluralize(@event.attendees.size, 'attendee') %>
+          <a class="message-link" data-toggle="collapse" data-target="#users" href="#users" role="button" aria-expanded="false" aria-controls="collapseExample"></a>
         </div>
+      </div>
+    </div>
+    <div id="users" class="collapse">
+      <div class="row attendee">
+       <ul class="list-group">
+         <% @attendees.each do |attendee| %>
+            <%= cl_image_tag attendee.user.avatar.url(:avatar, secure:true), class: "avatar-large avatar-bordered"  %><%= "#{attendee.user.first_name} #{attendee.user.last_name}"%>
+        <% end %>
+       </ul>
       </div>
     </div>
  </div>
 </div>
-
-
-
 
