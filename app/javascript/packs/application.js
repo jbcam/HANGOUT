@@ -5,10 +5,10 @@ import "../channels/chatrooms";
 import "../channels/messages";
 import "../channels/read_messages";
 import { getProximity } from "../geolocation";
-import { toggleStatus } from "../status";
+// import { toggleStatus } from "../status";
 import { buttonsColor } from "../btn_footer";
 
 
 document.addEventListener("DOMContentLoaded", getProximity);
-document.addEventListener("DOMContentLoaded", toggleStatus);
+// document.addEventListener("DOMContentLoaded", toggleStatus);
 buttonsColor();
