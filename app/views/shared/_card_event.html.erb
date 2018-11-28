@@ -1,5 +1,5 @@
 <div data-user="<%= event.id %>" data-lat="<%= event.latitude %>" data-lng="<%= event.longitude %>" class="card-base card-event">
-  <i class='<%= event.category.picto%> picto-small card-event-mood'></i>
+  <i class='<%= event.category.picto%> picto-small card-event-picto'></i>
   <div class="card-event-time text-center ml-3">
     <div id="red"><%= event.starts_at.strftime('%^b') %></div>
     <h4><%= event.starts_at.strftime('%d') %></h3>

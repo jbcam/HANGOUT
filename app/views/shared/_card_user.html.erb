@@ -12,7 +12,9 @@
     <h4><%= user.mood %></h4>
     <%= link_to 'contact', chats_conversations_path(recipient_id: user.id),  method: :post, class: "btn btn-primary" %>
   </div>
-  <i class='<%= user.category.picto%> picto-small card-user-mood'></i>
+  <%  if user.category.picto.present? %>
+    <i class='<%= user.category.picto %> card-user-mood'></i>
+  <% end %>
   <div class="card-km">
     10 km
   </div>

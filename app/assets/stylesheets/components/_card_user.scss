@@ -4,7 +4,11 @@
 
 .card-user {
   margin-top: 50px;
-  margin-bottom: 10px
+  margin-bottom: 10px;
+}
+
+.card-user:last-child {
+  margin-bottom: 50px;
 }
 .card-user-avatar {
   position: absolute;
@@ -42,6 +46,7 @@
   position: absolute;
   left: 10px;
   bottom: 10px;
+  font-size: 30px;
 }
 
 

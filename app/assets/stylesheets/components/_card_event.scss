@@ -6,10 +6,15 @@
   margin: 10px 0;
 }
 
+.card-event:last-child {
+  margin-bottom: 60px;
+}
+
 .card-event-picto {
   position: absolute;
-  top: 10px;
+  top: 17px;
   left: 10px;
+  font-size: 30px;
 }
 
 .card-event-time {
