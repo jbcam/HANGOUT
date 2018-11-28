@@ -13,21 +13,8 @@
      </div>
     </div>
   <!-- action -->
-    <div class="row">
-      <div class=" col d-inline-flex p-2 border-bt">
-        <div class="flex-fill text-center control">
-          <i class="fas fa-user-check"></i>
-          <p>going</p>
-        </div>
-        <div class="flex-fill text-center control">
-          <i class="far fa-star"></i>
-          <p>interested</p>
-        </div>
-        <div class="flex-fill text-center control">
-          <i class="fas fa-share"></i>
-          <p>share</p>
-        </div>
-      </div>
+    <div class="row" id="event-control">
+      <%= render 'event_controls', event: @event %>
     </div>
   <!-- desc -->
     <div class="row">
@@ -52,22 +39,10 @@
       </div>
     </div>
   <!-- attendees -->
-    <div class="row">
-      <div class="col d-flex align-items-center p-3">
-        <%= cl_image_tag current_user.avatar.url(:avatar, secure:true), class: " avatar-large avatar-bordered" %>
-         <div class="flex-grow-1 pl-1">
-          organized by <%= @event.user.first_name %>
-        </div>
-      </div>
-    </div>
+    <%= render 'event_organizer', event: @event %>
     <!-- rows -->
-    <div class="row">
-      <div class="col d-flex align-items-center p-3 border-bt">
-        <%= render 'shared/attendees_avatars', attendees: @event.attendees %>
-        <div class="flex-grow-1 pl-1">
-          <%= pluralize(@event.attendees.size, 'attendee') %>
-        </div>
-      </div>
+    <div class="row" id="event-attendees">
+       <%= render 'event_attendees', event: @event %>
     </div>
  </div>
 </div>
