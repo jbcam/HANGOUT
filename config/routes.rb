@@ -17,8 +17,12 @@ Rails.application.routes.draw do
 
 
   # chat
-  namespace :chats, only: [:index] do
+   resources :chats, only: [:index]
+  namespace :chats do
     resources :events, only: [:show] do
+      resources :messages, only: [:create]
+    end
+    resources :conversations, only: [:show, :update] do
       resources :messages, only: [:create]
     end
   end
@@ -26,7 +30,7 @@ Rails.application.routes.draw do
   # Serve websocket cable requests in-process
   mount ActionCable.server => '/cable'
 
-  resources :conversations, only: [:index, :show, :update, :create, :createConsumer] do
+  resources :conversations, only: [:index, :create, :createConsumer] do
     resources :messages, only: [:create]
   end
 end
