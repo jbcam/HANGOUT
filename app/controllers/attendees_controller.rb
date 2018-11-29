@@ -26,6 +26,7 @@ class AttendeesController < ApplicationController
     message.content = "#{current_user.first_name} has join the event"
     message.system_message = true
     message.save
+    broadcast_message(message)
   end
 
   def destroy(event)
@@ -40,5 +41,18 @@ class AttendeesController < ApplicationController
     message.content = "#{current_user.first_name} has left the event"
     message.system_message = true
     message.save
+    broadcast_message(message)
+  end
+
+  def broadcast_message(message)
+    ActionCable.server.broadcast "chat_#{message.messageable.id}",
+        message_partial: ApplicationController.renderer.render(
+          partial: 'chats/messages/message',
+          locals: {
+            current_user: current_user,
+            message: message
+          }
+        )
+      head :ok
   end
 end

@@ -8,4 +8,12 @@ class Conversation < ApplicationRecord
     count = messages.count { |message| !message.read && message.user != user }
     count.nil? ? 0 : count
   end
+
+  def partner(user)
+    sender == user ? recipient : sender
+  end
+
+  def partners(user)
+    [partner(user)]
+  end
 end

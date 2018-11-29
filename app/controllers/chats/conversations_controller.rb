@@ -3,6 +3,7 @@ class Chats::ConversationsController < ApplicationController
 
   def show
     @message = Message.new
+    update
   end
 
   def create
@@ -20,17 +21,14 @@ class Chats::ConversationsController < ApplicationController
 
   def update
     @conversation.messages.where.not(read: true).each do |message|
-      message.read = true unless message.user == current_user
-      message.save!
-    end
-    # @unread_messages = current_user.unread_messages;
-    respond_to do |format|
-      # format.html { redirect_to chats_conversation_path(@conversation) }
-      format.js
+    message.read = true unless message.user == current_user
+    message.save!
     end
   end
 
   private
+
+
 
   def set_conversation
     @conversation = Conversation.find(params[:id])

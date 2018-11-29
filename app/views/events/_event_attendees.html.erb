@@ -1,6 +1,6 @@
 <div class="col d-flex align-items-center p-3 border-bt">
-  <%= render 'shared/attendees_avatars', attendees: @event.attendees %>
+  <%= render 'shared/attendees_avatars', attendees: event.attendees %>
   <div class="flex-grow-1 pl-1">
-    <%= pluralize(@event.attendees.size, 'attendee') %>
+    <%= pluralize(event.attendees.size, 'attendee') %>
   </div>
 </div>

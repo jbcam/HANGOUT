@@ -8,14 +8,12 @@ function tabColor() {
       tab_past.classList.remove("past-active");
     });
   }
-
   if (tab_past) {
     tab_past.addEventListener("click", (event) => {
       tab_next.classList.remove("next-active");
       tab_past.classList.add("past-active");
     });
   }
-
 }
 
 export { tabColor };

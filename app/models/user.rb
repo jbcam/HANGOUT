@@ -37,10 +37,15 @@ class User < ApplicationRecord
     return nil
   end
 
-  def unread_messages
-    count = 0
-    sender_conversations.each { |conversation| count += 1 if conversation.unread_messages(self).positive? }
-    recipient_conversations.each { |conversation| count += 1 if conversation.unread_messages(self).positive? }
-    count
+  def unread_conversations
+    sent = sender_conversations.count { |conversation| conversation.unread_messages(self).positive? }
+    rec = recipient_conversations.count { |conversation| conversation.unread_messages(self).positive? }
+    ev = events.count { |event| event.unread_messages(self).positive? }
+    sent + rec + ev
+  end
+
+  def channels_id
+    channels = sender_conversations + recipient_conversations + events
+    channels.map(&:id).to_json
   end
 end

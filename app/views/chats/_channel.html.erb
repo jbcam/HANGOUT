@@ -1,8 +1,8 @@
  <!-- conversation view -->
 <% if channel.class == Conversation %>
    <div class="d-flex justify-content-start align-items-center">
-    <%= cl_image_tag conversation_partner(channel).avatar.url(:avatar, secure:true), class: "avatar avatar-large mr-2" %>
-    <div class="flex-grow-1"><%= full_name(conversation_partner(channel)) %></div>
+    <%= cl_image_tag channel.partner(current_user).avatar.url(:avatar, secure:true), class: "avatar avatar-large mr-2" %>
+    <div class="flex-grow-1"><%= full_name(channel.partner(current_user)) %></div>
     <% if channel.unread_messages(current_user) > 0 %>
       <span class="badge badge-danger badge-pill"><%= channel.unread_messages(current_user) %></span>
     <% end %>
