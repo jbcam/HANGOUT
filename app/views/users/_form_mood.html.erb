@@ -1,7 +1,7 @@
 <div class="container">
   <div class="form--mood">
   <%= simple_form_for user, url: user_path(user), method: :patch do |f| %>
-    <%= f.input :mood, placeholder: "How are feeling today ?", label: false %>
+    <%= f.input :mood, placeholder: "How do you feel today ?", label: false %>
     <%= f.input :category_id, as: :select, collection: Category.all.map { |r| [r.name.capitalize, r.id] }, include_blank: true %>
     <%= f.input :status, as: :hidden, input_html: { value: 'available' } %>
     <%= f.submit "Push your mood", class: "btn btn-primary" %>
