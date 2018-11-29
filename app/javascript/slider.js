@@ -1,19 +1,45 @@
-var rangeSlider = function(){
-  var slider = document.querySelectorAll('.range-slider'),
-      range = document.querySelectorAll('.range-slider__range'),
-      value = document.querySelectorAll('.range-slider__value');
 
-  slider.each(function(){
+import Slider from 'bootstrap-slider';
+import 'bootstrap-slider/dist/css/bootstrap-slider';
 
-    value.each(function(){
-      var value = this.prev().attr('value');
-      this.html(value);
-    });
+var mySlider;
 
-    range.on('input', function(){
-      this.next(value).html(this.value);
-    });
+function startSlide() {
+  // var input = document.querySelector("input.slider");
+  mySlider = new Slider("#ex1", {
+    tooltip: 'always',
+    tooltip_position: 'bottom'
+  });
+
+  mySlider.on('slideStop', filterDistance);
+
+}
+
+function filterDistance(e) {
+  document.querySelectorAll('.card-user').forEach((card) => {
+    var kmSelector = mySlider.getValue()
+    var distance = parseInt(card.querySelector('.card-km').innerHTML.match(/[0-9\.]+/)[0], 10)
+    if (distance < kmSelector) {
+      card.classList.remove('d-none');
+    } else {
+      card.classList.add('d-none');
+    }
+  });
+
+  document.querySelectorAll('.card-event').forEach((card) => {
+    var kmSelector = mySlider.getValue()
+    var distance = parseInt(card.querySelector('.card-km').innerHTML.match(/^\d*/)[0], 10)
+
+
+    if (distance < kmSelector) {
+      card.classList.remove('d-none');
+    } else {
+      card.classList.add('d-none');
+    }
   });
 };
 
-rangeSlider();
+
+
+export { startSlide, filterDistance };
+
