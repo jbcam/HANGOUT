@@ -3,7 +3,16 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Bizzy</title>
+    <title><%= meta_title %></title>
+    <meta name="description" content="<%= meta_description %>">
+
+    <!-- Facebook Open Graph data -->
+    <meta property="og:title" content="<%= meta_title %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= request.original_url %>" />
+    <meta property="og:image" content="<%= meta_image %>" />
+    <meta property="og:description" content="<%= meta_description %>" />
+    <meta property="og:site_name" content="<%= meta_title %>" />
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -18,6 +27,7 @@
     <%= render 'status' if current_page?(root_path) %>
     <%= yield %>
 
+
     <% if user_signed_in? %>
       <% if current_page?(root_path) %>
         <%= render 'shared/homepage_footer' %>
@@ -26,8 +36,34 @@
       <% end %>
     <% end %>
 
+
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
+    <%= yield(:after_js) %>
+
+    <!-- <script>
+      window.onload = function() {
+        var context = new AudioContext();
+      }
+    </script> -->
+    <% if user_signed_in? %>
+      <script>
+        App.messages = App.cable.subscriptions.create(
+        {
+          channel: 'NotificationsChannel',
+          user_id: <%= current_user.id  %>
+        },
+        {
+          received: function(data) {
+            badge = document.getElementById("badge-notification");
+            badge.innerText = data.unread_conversations;
+            data.unread_conversations > 0 ? badge.classList.remove("d-none") : badge.classList.add("d-none")
+            const audio = new Audio('<%= audio_path("notification.mp3") %>');
+            audio.play();
+          }
+        });
+      </script>
+    <% end %>
   </body>
 </html>
 

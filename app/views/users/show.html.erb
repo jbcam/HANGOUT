@@ -1,7 +1,51 @@
+<h1 class= "padded-s welcome--profile">Welcome back <%= current_user.first_name %>!</h1>
  <div class="container">
   <div class="row">
     <div class="col-sm-4">
         <%= render 'shared/card_user', user: @user %>
    </div>
   </div>
+  <button class="btn btn-secondary edit--btn">Edit my profile</button>
 </div>
+
+<h2 class="text-center events--profile">My events</h2>
+
+<div class="container">
+    <div class="tabs">
+      <button class="tab" type="button" id="button-tab-next" data-toggle="collapse" data-target="#next-events" aria-expanded="false" aria-controls="next-events">Next events</button>
+      <button class="tab" type="button" id="button-tab-past" data-toggle="collapse" data-target="#past-events" aria-expanded="false" aria-controls="past-events next-events">Past events</button>
+    </div>
+
+    <!-- next event -->
+    <div id="next-events" class="collapse">
+      <div class="row">
+        <% if @next_events.any? %>
+          <% @next_events.each do |event| %>
+            <div class="col-xs-12 col-md-4">
+              <%= render "shared/card_event", event: event %>
+            </div>
+          <% end %>
+        <% else %>
+          <div><p>Your not attending any meeting yet?</p></div>
+          <div><p>Check events next to you</p></div>
+          <%= link_to events_path, class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+    <!-- past events -->
+    <div id="past-events" class="collapse">
+    <div class="row">
+      <% if @past_events.any? %>
+        <% @past_events.each do |event| %>
+          <div class="col-xs-12 col-md-4">
+            <%= render "shared/card_event", event: event %>
+          </div>
+        <% end %>
+        <% else %>
+          <div><p class="past--events--advice">You have no past events.</p></div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+

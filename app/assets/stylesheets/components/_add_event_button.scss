@@ -1,0 +1,33 @@
+.plus-button {
+  position: fixed;
+  bottom: 125px;
+  right: 2%;
+  overflow: hidden;
+  z-index: 2;
+  background-color: $blue;
+  opacity: 0.3;
+  font-size: 2.4em;
+  line-height: 1.3;
+  color: black;
+  text-align: center;
+  width: 60px;
+  height:60px;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  border: white 4px solid;
+
+}
+
+.plus-button-event {
+  bottom: 80px;
+}
+
+.plus-button-message {
+  bottom: 125px;
+}
+
+ .plus-button:hover {
+  text-decoration: none;
+  color: $dark;
+}
+

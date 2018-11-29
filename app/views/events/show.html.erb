@@ -2,7 +2,7 @@
   <div class="row">
     <!-- top square -->
       <div class="col d-flex align-items-center p-4">
-        <i class='<%= @event.category.picto%> picto-small card-event-mood'></i>
+        <i class='<%= @event.category.picto %> event-category'></i>
         <h3 class="flex-grow-1 text-center">
           <%= @event.name %>
         </h3>
@@ -13,21 +13,8 @@
      </div>
     </div>
   <!-- action -->
-    <div class="row">
-      <div class=" col d-inline-flex p-2 border-bt">
-        <div class="flex-fill text-center control">
-          <i class="fas fa-user-check"></i>
-          <p>going</p>
-        </div>
-        <div class="flex-fill text-center control">
-          <i class="far fa-star"></i>
-          <p>interested</p>
-        </div>
-        <div class="flex-fill text-center control">
-          <i class="fas fa-share"></i>
-          <p>share</p>
-        </div>
-      </div>
+    <div class="row" id="event-control">
+      <%= render 'event_controls', event: @event %>
     </div>
   <!-- desc -->
     <div class="row">
@@ -52,6 +39,7 @@
       </div>
     </div>
   <!-- attendees -->
+
     <div class="row">
       <div class="col d-flex align-items-center p-3">
         <%= cl_image_tag @event.user.avatar.url(:avatar, secure:true), class: "avatar-large avatar-bordered" %>
@@ -69,6 +57,11 @@
           <a class="message-link" data-toggle="collapse" data-target="#users" href="#users" role="button" aria-expanded="false" aria-controls="collapseExample"></a>
         </div>
       </div>
+    <%= render 'event_organizer', event: @event %>
+    <!-- rows -->
+    <div class="row" id="event-attendees">
+       <%= render 'event_attendees', event: @event %>
+
     </div>
     <div id="users" class="collapse">
       <div class="row attendee">
@@ -79,8 +72,7 @@
                   <%= cl_image_tag attendee.user.avatar.url(:avatar, secure:true), class: "avatar avatar-bordered"  %>
                   <div class= "flex-grow-1 ml-2">
                      <%=link_to full_name(attendee.user), user_path(attendee.user), class: "user-link" %>
-                  </div>
-                  <% %>
+                 </div>
               </li>
             <% end %>
            </ul>

@@ -4,7 +4,11 @@
 
 .card-user {
   margin-top: 50px;
-  margin-bottom: 10px
+  margin-bottom: 10px;
+}
+
+.card-user:last-child {
+  margin-bottom: 50px;
 }
 .card-user-avatar {
   position: absolute;
@@ -42,6 +46,28 @@
   position: absolute;
   left: 10px;
   bottom: 10px;
+  font-size: 30px;
 }
 
+.welcome--profile {
+  background-color: #CAEDF2;
+  font-weight: bold;
+  font-size: 2em;
+  margin-bottom: 46px;
+}
 
+.events--profile {
+  font-weight: bold;
+  font-size: 1.7em;
+  margin-bottom: 46px;
+}
+
+.edit--btn {
+  background-color: $blue !important;
+  color: white !important;
+}
+
+.past--events--advice {
+  margin-bottom: 50px;
+  margin-left: 93px;
+}

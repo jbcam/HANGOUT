@@ -63,10 +63,19 @@ function getProximity() {
         const distance = distanceBetween(userLocation["lat"], userLocation["lng"], location["lat"], location["lng"]);
         console.log(userLocation["lng"]);
         const cardLocation = card.querySelector(".card-km").innerHTML = `${Math.round(distance * 100) / 100} Km` ;
+
+        var kmSelector = 25;
+        var distanceWithUser = parseInt(card.querySelector('.card-km').innerHTML.match(/[0-9\.]+/)[0], 10)
+        if (distanceWithUser < kmSelector) {
+          card.classList.remove('d-none');
+        } else {
+          card.classList.add('d-none');
+        }
       });
     }
   });
 };
+
 
 // Converts numeric degrees to radians
 export { getProximity };

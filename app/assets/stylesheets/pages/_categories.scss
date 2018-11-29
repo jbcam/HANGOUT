@@ -14,8 +14,10 @@ $teal: #1abc9c !default;
   }
 }
 
-.range-slider {
-
+.slider-selection {
+  position: absolute;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f9f9f9), to(#f5f5f5));
+  background-image: linear-gradient(to bottom, #828282 0%, #f5f5f5 100%)!important;
 }
 
 
@@ -93,6 +95,10 @@ $range-label-width: 60px !default;
   }
 }
 
+.slider-handle {
+  background-color: #48ACF0!important;
+  background-image: none!important;
+}
 
 // Range Label
 .range-slider__value {

@@ -6,18 +6,22 @@
 
 #messages {
   margin-top: 80px;
-  margin-bottom: 130px;
+  margin-bottom: 200px;
 }
 
 // .message-group:first-child {
 //   margin-top: 80px !important;
 // }
+.system {
+   background: $lighter-gray;
+   max-width: 80vw;
+}
 .me {
   background: $light-blue;
 }
 
 .friend {
-  background: $light-gray
+  background: $light-gray;
 }
 
 .new-message {

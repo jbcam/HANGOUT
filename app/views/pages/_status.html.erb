@@ -12,9 +12,8 @@
     </button>
   </div>
 
-  <div class="collapse" id="collapseExample">
-    <div class="d-flex p-3 filter">
-
+  <div class="collapse text-center" id="collapseExample">
+    <div class="p-3 filter">
       <div id="filter_categories">
         <% if params[:event_index] %>
           <%= render 'events/filter' %>
@@ -22,10 +21,8 @@
           <%= render 'users/filter' %>
         <% end %>
       </div>
-
-      <div class="range-slider">
-        <input class="range-slider__range" type="range" value="100" min="0" max="150">
-        <span class="range-slider__value">100</span>
+      <div class="range-slider pt-2">
+        <input id="ex1" class='slider' type="text" data-slider-min="0" data-slider-max="100" data-slider-step="10" data-slider-value="25"/>
       </div>
     </div>
   </div>

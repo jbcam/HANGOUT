@@ -1,0 +1,32 @@
+
+<%= render 'conversation_header', user: @conversation.partner(current_user) %>
+<div class="container" id="messages">
+  <% if @conversation.messages.any? %>
+    <% @conversation.messages.each do |message| %>
+      <%= render 'chats/messages/message', message: message %>
+    <% end %>
+  <% end %>
+</div>
+
+<%= render 'add_event_button' %>
+<%= render 'chats/messages/message_form',message: @message, channel: @conversation %>
+
+<% content_for :after_js do  %>
+  <script>
+    App.messages = App.cable.subscriptions.create({
+      channel: 'MessagesChannel',
+      channel_id: <%= @conversation.id %>
+    }, {
+      received: function(data) {
+        document.getElementById("messages").insertAdjacentHTML("beforeend", select_message_to_display(data));
+        window.scrollTo(0,document.body.scrollHeight);
+        return document.getElementById("new_message").reset();
+      }
+    });
+
+    const select_message_to_display = (data) => {
+      return <%= current_user.id %> === data.sender_id ? data.sender_message_partial : data.recipient_message_partial;
+    };
+  </script>
+<% end %>
+

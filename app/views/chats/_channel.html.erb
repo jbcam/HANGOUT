@@ -1,0 +1,30 @@
+ <!-- conversation view -->
+<% if channel.class == Conversation %>
+   <div class="d-flex justify-content-start align-items-center">
+    <%= cl_image_tag channel.partner(current_user).avatar.url(:avatar, secure:true), class: "avatar avatar-large mr-2" %>
+    <div class="flex-grow-1"><%= full_name(channel.partner(current_user)) %></div>
+    <% if channel.unread_messages(current_user) > 0 %>
+      <span class="badge badge-danger badge-pill"><%= channel.unread_messages(current_user) %></span>
+    <% end %>
+ </div>
+  <%= link_to '', chats_conversation_path(channel), class: "message-link" %>
+<!-- event view -->
+<%  else %>
+    <div class="d-flex justify-content-start align-items-center">
+       <div class="avatars mr-2">
+          <% channel.attendees.first(4).each do |attendee| %>
+            <span class="avatar-group">
+              <%= cl_image_tag attendee.user.avatar.url(:avatar, secure:true), class: "avatar avatar-large"  %>
+            </span>
+          <% end %>
+        </div>
+      <% if channel.attendees.size > 4 %>
+        <p class="ml-1 mb-0">+<%= channel.attendees.size - 4 %></p>
+      <% end %>
+       <div class="flex-grow-1"><%= "#{channel.name} - #{channel.starts_at.strftime('%d %b')}" %></div>
+        <% if channel.unread_messages(current_user) > 0 %>
+          <span class="badge badge-danger badge-pill"><%= channel.unread_messages(current_user) %></span>
+        <% end %>
+      <%= link_to '', chats_event_path(channel), class: "message-link" %>
+     </div>
+ <% end %>

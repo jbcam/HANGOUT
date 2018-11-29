@@ -11,9 +11,21 @@
   margin-bottom: 0;
 }
 
+.control a {
+  color: $dark;
+}
+
 .control:hover {
   color: $blue;
 
+}
+
+.control-active  {
+  color: $blue;
+}
+
+.control-active a {
+  color: $blue;
 }
 
 .info p:last-child {
@@ -29,6 +41,7 @@
   height: 15px;
   width: 100vw;
 }
+
 .attendee {
   margin-bottom: 23%;
 }
@@ -39,4 +52,7 @@
 
 .user-link:hover {
   text-decoration: none;
+
+.event-category {
+  font-size: 30px;
 }
