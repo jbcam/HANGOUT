@@ -6,6 +6,9 @@ Rails.application.configure do
 
   # Code is not reloaded between requests.
   config.cache_classes = true
+  # Configuration for REDIS on Heroku
+  config.web_socket_server_url = "wss://bizzy-club.herokuapp.com/cable"
+  config.action_cable.allowed_request_origins = ['https://bizzy-club.herokuapp.com', 'http://bizzy-club.herokuapp.com']
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers

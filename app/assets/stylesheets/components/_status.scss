@@ -9,45 +9,6 @@
 $height : 30px;
 $width: 50px;
 
-.add--one--event a {
-  position: fixed;
-  bottom: 100px;
-  overflow: hidden;
-  width: 55px;
-  height: 59px;
-  z-index: 2;
-  margin-left: -16%;
-  background-color: $blue;
-  font-size: 2.4em;
-  font-weight: bold;
-  color: $dark;
-  text-align: center;
-  border-radius: 50%;
-}
-.add--one--event a:hover {
-  text-decoration: none;
-  color: $dark;
-}
-.add--one--message a {
-  position: fixed;
-  bottom: 100px;
-  overflow: hidden;
-  width: 55px;
-  height: 59px;
-  z-index: 2;
-  margin-left: 84%;
-  margin-bottom: 9%;
-  background-color: $blue;
-  border-radius: 50%;
-  font-size: 2.4em;
-  font-weight: bold;
-  color: $dark;
-  text-align: center;
-}
-.add--one--message a:hover {
-  text-decoration: none;
-  color: $dark;
-}
 .switch {
 
   position: relative;

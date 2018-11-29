@@ -2,6 +2,7 @@ class Event < ApplicationRecord
   belongs_to :category
   belongs_to :user
   has_many :attendees
+  has_many :users, through: :attendees
   has_many :messages, as: :messageable
   has_many :messages, as: :messageable, dependent: :destroy
 
@@ -19,4 +20,9 @@ class Event < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  def unread_messages(user)
+    count = messages.count { |message| !message.read && message.user != user }
+    count.nil? ? 0 : count
+  end
 end

@@ -1,8 +1,11 @@
+<%#= link_to 'connect/disconnect', user_path(current_user, user: { status: current_user.status }), method: :patch %>
 <div class="container pt-2">
   <div class="status d-flex justify-content-between">
     <label class="switch">
-      <input checked type="checkbox" name="checkbox">
-      <span class="knob"></span>
+      <%= simple_form_for :user, url: toggle_availability_users_path, remote: true do |f| %>
+        <%= f.input_field :availability, as: :boolean, checked: current_user.available?, onchange: "Rails.fire(this.form, 'submit');" %>
+        <span class="knob"></span>
+      <% end %>
     </label>
     <button type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
       <i class="fas fa-sliders-h"></i>

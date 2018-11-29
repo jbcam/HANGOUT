@@ -1,3 +1,4 @@
+
 import Slider from 'bootstrap-slider';
 import 'bootstrap-slider/dist/css/bootstrap-slider';
 
@@ -37,3 +38,4 @@ function startSlide() {
 
 
 export { startSlide };
+

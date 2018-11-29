@@ -1,0 +1,21 @@
+<div class=" col d-inline-flex p-2 border-bt">
+  <% if current_user.events.include? event %>
+    <div class="flex-fill text-center control control-active">
+    <%= link_to raw('<i class="fas fa-user-check"></i>'),  event_attendees_path(event), method: :post, remote: true %>
+      <p>going</p>
+    </div>
+  <% else %>
+    <div class="flex-fill text-center control">
+      <%= link_to raw('<i class="fas fa-user-check"></i>'),  event_attendees_path(event), method: :post, remote: true %>
+      <p>going</p>
+    </div>
+  <% end %>
+  <div class="flex-fill text-center control">
+    <%= link_to raw('<i class="far fa-star"></i>'),  '#', class: "attend-link" %>
+    <p>interested</p>
+  </div>
+  <div class="flex-fill text-center control">
+    <%= link_to raw('<i class="fas fa-share"></i>'),  '#', class: "attend-link" %>
+    <p>share</p>
+  </div>
+</div>

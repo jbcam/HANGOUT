@@ -6,7 +6,9 @@ class User < ApplicationRecord
 
   enum status: { unavailable: 0, available: 1 }
   belongs_to :category, optional: true
-  has_many :events
+  has_many :attendees
+  has_many :events, through: :attendees
+  has_many :hosted_events
   has_many :sender_conversations, class_name: "Conversation", foreign_key: "sender_id", dependent: :destroy
   has_many :recipient_conversations, class_name: "Conversation", foreign_key: "recipient_id", dependent: :destroy
 
@@ -37,8 +39,8 @@ class User < ApplicationRecord
 
   def unread_messages
     count = 0
-    sender_conversations.each { |conversation| count += conversation.unread_messages(self) }
-    recipient_conversations.each { |conversation| count += conversation.unread_messages(self) }
+    sender_conversations.each { |conversation| count += 1 if conversation.unread_messages(self).positive? }
+    recipient_conversations.each { |conversation| count += 1 if conversation.unread_messages(self).positive? }
     count
   end
 end

@@ -9,25 +9,33 @@
 // btnShow.addEventListener('click', () => {
 //   firstDiv.hidden = false;
 // });
-function toggleStatus() {
-  try {
-  const notAvailable = document.getElementById("not-available");
-  const userAvailable = document.getElementById("available");
-  const toggleActive = document.querySelector(".switch");
-  const checkbox = toggleActive.querySelector("input");
+// function toggleStatus() {
+//   try {
+//   const notAvailable = document.getElementById("not-available");
+//   const userAvailable = document.getElementById("available");
+//   const toggleActive = document.querySelector(".switch");
+//   const checkbox = toggleActive.querySelector("input");
 
-  checkbox.addEventListener( 'change', function() {
-      if(this.checked) {
-          // Checkbox is checked..
-        notAvailable.classList.add("d-none");
-        userAvailable.classList.remove("d-none");
-      } else {
-          // Checkbox is not checked..
-        notAvailable.classList.remove("d-none");
-        userAvailable.classList.add("d-none");
-      }
-  });
-  } catch(e) {};
-};
+//   if (checkbox.checked) {
+//     notAvailable.classList.add("d-none");
+//     userAvailable.classList.remove("d-none");
+//   } else {
+//     notAvailable.classList.remove("d-none");
+//     userAvailable.classList.add("d-none");
+//   }
 
-export { toggleStatus };
+//   checkbox.addEventListener('change', function() {
+//       if(this.checked) {
+//           // Checkbox is checked..
+//         notAvailable.classList.add("d-none");
+//         userAvailable.classList.remove("d-none");
+//       } else {
+//           // Checkbox is not checked..
+//         notAvailable.classList.remove("d-none");
+//         userAvailable.classList.add("d-none");
+//       }
+//   });
+//   } catch(e) {};
+// };
+
+// export { toggleStatus };
