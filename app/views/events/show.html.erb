@@ -40,29 +40,31 @@
     </div>
   <!-- attendees -->
 
-    <div class="row">
+<!--     <div class="row">
       <div class="col d-flex align-items-center p-3">
         <%= cl_image_tag @event.user.avatar.url(:avatar, secure:true), class: "avatar-large avatar-bordered" %>
          <div class="flex-grow-1 pl-1">
           organized by <%= @event.user.first_name %>
         </div>
       </div>
-    </div>
+    </div> -->
+    <%= render 'event_organizer', event: @event %>
     <!-- rows -->
-    <div class="row">
+<!--     <div class="row">
       <div class="col d-flex align-items-center p-3 border-bt mb-4">
-        <%= render 'shared/attendees_avatars', attendees: @event.attendees %>
+        <%#= render 'shared/attendees_avatars', attendees: @event.attendees %>
         <div class="flex-grow-1 pl-1" >
-          <%= pluralize(@event.attendees.size, 'attendee') %>
+          <%#= pluralize(@event.attendees.size, 'attendee') %>
           <a class="message-link" data-toggle="collapse" data-target="#users" href="#users" role="button" aria-expanded="false" aria-controls="collapseExample"></a>
         </div>
       </div>
-    <%= render 'event_organizer', event: @event %>
-    <!-- rows -->
-    <div class="row" id="event-attendees">
-       <%= render 'event_attendees', event: @event %>
+    </div> -->
 
-    </div>
+    <!-- rows -->
+    <!-- <div class="row" id="event-attendees">
+    </div> -->
+     <%= render 'event_attendees', event: @event %>
+
     <div id="users" class="collapse">
       <div class="row attendee">
         <div class="col">

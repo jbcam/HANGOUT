@@ -55,8 +55,16 @@ class EventsController < ApplicationController
   def event_params
     parameters = params.require(:event).permit(:name, :description, :address,:link, :category_id, :starts_at, :ends_at)
     dates = parameters[:starts_at].split(" to ")
+    if dates.first.present?
     parameters[:starts_at] = Time.parse(dates.first).to_datetime
-    parameters[:ends_at] = Time.parse(dates.last).to_datetime
+    else
+      parameters[:starts_at] = Time.now
+    end
+    if dates.last.present?
+      parameters[:ends_at] = Time.parse(dates.last).to_datetime
+    else
+      parameters[:starts_at] = Time.now
+    end
     parameters
   end
 end
