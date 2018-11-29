@@ -2,7 +2,7 @@
 <%= render 'conversation_header', user: @conversation.partner(current_user) %>
 <div class="container" id="messages">
   <% if @conversation.messages.any? %>
-    <% @conversation.messages.each do |message| %>
+    <% @conversation.messages.sort_by { |message| message.created_at }.each do |message| %>
       <%= render 'chats/messages/message', message: message %>
     <% end %>
   <% end %>

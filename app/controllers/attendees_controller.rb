@@ -46,13 +46,15 @@ class AttendeesController < ApplicationController
 
   def broadcast_message(message)
     ActionCable.server.broadcast "chat_#{message.messageable.id}",
-        message_partial: ApplicationController.renderer.render(
+      sender_message_partial: ApplicationController.renderer.render(
           partial: 'chats/messages/message',
           locals: {
             current_user: current_user,
             message: message
           }
-        )
+        ),
+        sender_id: message.user.id,
+        system_message: true
       head :ok
   end
 end

@@ -21,6 +21,10 @@
     });
 
     const select_message_to_display = (data) => {
+      debugger
+      if (data.system_message) {
+        return data.sender_message_partial;
+      }
       return <%= current_user.id %> === data.sender_id ? data.sender_message_partial : data.recipient_message_partial;
     };
   </script>
