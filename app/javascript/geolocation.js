@@ -68,5 +68,6 @@ function getProximity() {
   });
 };
 
+
 // Converts numeric degrees to radians
 export { getProximity };
