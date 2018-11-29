@@ -25,4 +25,12 @@ class Event < ApplicationRecord
     count = messages.count { |message| !message.read && message.user != user }
     count.nil? ? 0 : count
   end
+
+  def partner(user)
+    return attendees.find { |attendee| attendee.user != user }
+  end
+
+  def partners(user)
+    return attendees.map { |attendee| attendee.user }.reject { |u| u == user }
+  end
 end

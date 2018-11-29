@@ -1,5 +1,5 @@
-<% if current_user.unread_messages > 0 %>
-  <span class='badge-notification' id='badge-notification'><%= current_user.unread_messages %></span>
+<% if current_user.unread_conversations > 0 %>
+  <span class='badge-notification' id='badge-notification'><%= current_user.unread_conversations %></span>
 <% else %>
-  <span class='badge-notification d-none' id='badge-notification'><%= current_user.unread_messages %></span>
+  <span class='badge-notification d-none' id='badge-notification'><%= current_user.unread_conversations %></span>
 <% end %>

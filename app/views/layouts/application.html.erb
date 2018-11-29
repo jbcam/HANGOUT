@@ -18,6 +18,7 @@
     <%= render 'status' if current_page?(root_path) %>
     <%= yield %>
 
+
     <% if user_signed_in? %>
       <% if current_page?(root_path) %>
         <%= render 'shared/homepage_footer' %>
@@ -26,9 +27,34 @@
       <% end %>
     <% end %>
 
+
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
     <%= yield(:after_js) %>
+
+    <!-- <script>
+      window.onload = function() {
+        var context = new AudioContext();
+      }
+    </script> -->
+    <% if user_signed_in? %>
+      <script>
+        App.messages = App.cable.subscriptions.create(
+        {
+          channel: 'NotificationsChannel',
+          user_id: <%= current_user.id  %>
+        },
+        {
+          received: function(data) {
+            badge = document.getElementById("badge-notification");
+            badge.innerText = data.unread_conversations;
+            data.unread_conversations > 0 ? badge.classList.remove("d-none") : badge.classList.add("d-none")
+            const audio = new Audio('<%= audio_path("notification.mp3") %>');
+            audio.play();
+          }
+        });
+      </script>
+    <% end %>
   </body>
 </html>
 
