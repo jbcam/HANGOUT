@@ -62,7 +62,7 @@
     </div>
     <!-- rows -->
     <div class="row">
-      <div class="col d-flex align-items-center p-3 border-bt ">
+      <div class="col d-flex align-items-center p-3 border-bt mb-4">
         <%= render 'shared/attendees_avatars', attendees: @event.attendees %>
         <div class="flex-grow-1 pl-1" >
           <%= pluralize(@event.attendees.size, 'attendee') %>
@@ -72,11 +72,19 @@
     </div>
     <div id="users" class="collapse">
       <div class="row attendee">
-       <ul class="list-group">
-         <% @attendees.each do |attendee| %>
-            <%= cl_image_tag attendee.user.avatar.url(:avatar, secure:true), class: "avatar-large avatar-bordered"  %><%= "#{attendee.user.first_name} #{attendee.user.last_name}"%>
-        <% end %>
-       </ul>
+        <div class="col">
+           <ul class="list-group list-group-flush">
+             <% @attendees.each do |attendee| %>
+               <li class= "list-group-item d-flex align-items-center">
+                  <%= cl_image_tag attendee.user.avatar.url(:avatar, secure:true), class: "avatar avatar-bordered"  %>
+                  <div class= "flex-grow-1 ml-2">
+                     <%=link_to full_name(attendee.user), user_path(attendee.user), class: "user-link" %>
+                  </div>
+                  <% %>
+              </li>
+            <% end %>
+           </ul>
+         </div>
       </div>
     </div>
  </div>
