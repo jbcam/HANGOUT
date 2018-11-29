@@ -49,12 +49,12 @@ user_attributes = [
   first_name: 'Kevin',
   last_name: 'Joya',
   email: 'kevin.joya@outlook.com',
-  remote_avatar_url: 'https://kitt.lewagon.com/placeholder/users/kvin3324',
+  remote_avatar_url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEQC_3saaJjs72teIiASOfaqkc7r0M_QMcTiFfRI1RHDZnmUCV',
   password:'azerty',
   linkedin: 'https://www.linkedin.com/in/k%C3%A9vin-joya-5b6250133/',
   city: 'Bordeaux',
   bio: Faker::Lorem.sentence(3),
-  job: 'Sofa tester',
+  job: "Le flic d'Hendaye",
   category: Category.first,
   latitude: 44.8347567,
   longitude: -0.5750013
@@ -83,6 +83,20 @@ user_attributes = [
   city: 'Scorbé-Clairvaux',
   bio: Faker::Lorem.sentence(3),
   job: 'Wizard',
+  category: Category.third,
+  latitude: 44.859351,
+  longitude: -0.5681261
+},
+{
+  first_name: 'Paul-Antoine',
+  last_name: 'Hocke',
+  email: 'pahocke@gmail.com',
+  remote_avatar_url: 'https://avatars3.githubusercontent.com/u/42313408?v=4',
+  password:'azerty',
+  linkedin: 'https://www.linkedin.com/in/paul-quintrie-lamothe-50ab43b2/  ',
+  city: 'Bordeaux',
+  bio: Faker::Lorem.sentence(3),
+  job: 'Data Analyst',
   category: Category.third,
   latitude: 44.859351,
   longitude: -0.5681261
@@ -128,6 +142,20 @@ user_attributes = [
   category: Category.first,
   latitude: 46.8127079,
   longitude: 0.5397638
+},
+{
+  first_name: 'Inès',
+  last_name: 'Mokaddem',
+  email: 'imokkadem@gmail.comm',
+  remote_avatar_url: 'https://avatars1.githubusercontent.com/u/25454502?v=4',
+  password:'azerty',
+  linkedin: 'https://www.linkedin.com/in/ines-mokaddem/?originalSubdomain=fr',
+  city: 'Bordeaux',
+  bio: "Passionnée d'Instagram, j'ai décidé de devenir influenceuse #BIZZYTROPCOOL",
+  job: 'Influenceuse',
+  category: Category.second,
+  latitude: 44.8347567,
+  longitude: -0.5750013
 }
 ]
 
@@ -160,7 +188,7 @@ event_attributes = [
     address: '107 Cours Balguerie Stuttenberg, 33300 Bordeaux',
     private: false,
     name: 'Poker night',
-    description: Faker::Lorem.sentence(3),
+    description: "Tournoi de poker Texas Holdem",
     category: Category.first,
     user: User.first
   },
@@ -170,7 +198,27 @@ event_attributes = [
     address: '9 Place Fernand Lafargue, 33000 Bordeaux',
     private: false,
     name: 'Diner at Kokomo',
-    description: Faker::Lorem.sentence(3),
+    description: "Burger et cheese fries",
+    category: Category.second,
+    user: User.second
+  },
+   {
+    starts_at: DateTime.now.change({ hour: 19, min: 0, sec: 0 }),
+    ends_at: DateTime.now.change({ hour: 23, min: 0, sec: 0 }),
+    address: 'Cours Jules Ladoumegue, 33300 Bordeaux',
+    private: false,
+    name: 'Finale de Champions League',
+    description: "Bordeaux - Real Madrid",
+    category: Category.second,
+    user: User.second
+  },
+  {
+    starts_at: DateTime.now.change({ hour: 19, min: 0, sec: 0 }),
+    ends_at: DateTime.now.change({ hour: 23, min: 0, sec: 0 }),
+    address: 'Place de la Comédie, 33000 Bordeaux',
+    private: false,
+    name: 'Beethoven Concerto',
+    description: "Etre en avance",
     category: Category.second,
     user: User.second
   }
