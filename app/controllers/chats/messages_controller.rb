@@ -36,7 +36,8 @@ class Chats::MessagesController < ApplicationController
           message: message
         }
       ),
-      sender_id: current_user.id
+      sender_id: current_user.id,
+      system_message: false
 
     head :ok
   end
