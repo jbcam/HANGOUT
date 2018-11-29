@@ -93,6 +93,10 @@ $range-label-width: 60px !default;
   }
 }
 
+.slider-handle {
+  background-color: #48ACF0!important;
+  background-image: none!important;
+}
 
 // Range Label
 .range-slider__value {

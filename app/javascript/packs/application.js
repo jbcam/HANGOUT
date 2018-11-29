@@ -14,4 +14,5 @@ document.addEventListener("DOMContentLoaded", getProximity);
 document.addEventListener("DOMContentLoaded", toggleStatus);
 buttonsColor();
 startSlide();
+document.addEventListener("DOMContentLoaded", startSlide);
 
