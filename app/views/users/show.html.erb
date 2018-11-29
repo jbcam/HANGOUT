@@ -1,4 +1,4 @@
-<h1 class= “padded-s”>Welcome back <%= current_user.first_name %>!</h1>
+<h1 class= "padded-s welcome--profile">Welcome back <%= current_user.first_name %>!</h1>
  <div class="container">
   <div class="row">
     <div class="col-sm-4">
@@ -8,7 +8,7 @@
   <button class="btn btn-secondary edit--btn">Edit my profile</button>
 </div>
 
-<h2 class="text-center">My events</h2>
+<h2 class="text-center events--profile">My events</h2>
 
 <div class="container">
     <div class="tabs">
@@ -41,6 +41,8 @@
             <%= render "shared/card_event", event: event %>
           </div>
         <% end %>
+        <% else %>
+          <div><p class="past--events--advice">You have no past events.</p></div>
       <% end %>
     </div>
   </div>
