@@ -3,7 +3,7 @@
   <%= simple_form_for @event do |f| %>
     <%= f.input :name, placeholder: "What's the name ?", label: false %>
     <%= f.input :description, input_html: { maxlength: 200 }, placeholder: "Write your description", label: false %>
-    <%= f.input :address, placeholder: "What's the address ?", label: false %>
+    <%= f.input :address, input_html: {id:'city_form', class: "autocomplete"}, placeholder: "What's the address ?", label: false, as: :string %>
     <%= f.input :category_id, as: :select, collection: Category.all.map { |r| [r.name.capitalize, r.id] }, include_blank: true, as: :radio_buttons %>
     <%= f.input :link, placeholder: "url", label: false %>
     <div class="row">
