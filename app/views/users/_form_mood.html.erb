@@ -1,10 +1,12 @@
-<div class="container">
+<div class="container mt-3">
   <div class="form--mood">
   <%= simple_form_for user, url: user_path(user), method: :patch do |f| %>
-    <%= f.input :mood, placeholder: "How do you feel today ?", label: false %>
-    <%= f.input :category_id, as: :select, collection: Category.all.map { |r| [r.name.capitalize, r.id] }, include_blank: true %>
+    <%= f.input :mood, placeholder: "What are you up to today?", label: false %>
+    <%= f.input :category_id, as: :select, collection: Category.all.map { |r| [r.name.capitalize, r.id] }, include_blank: true, label: false , hint: 'Select a category'%>
     <%= f.input :status, as: :hidden, input_html: { value: 'available' } %>
-    <%= f.submit "Push your mood", class: "btn btn-primary" %>
+    <div class="text-center">
+       <%= f.submit "Push your mood", class: "btn btn-primary" %>
+    </div>
   <% end %>
   </div>
 </div>

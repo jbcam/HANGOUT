@@ -5,13 +5,17 @@ import 'bootstrap-slider/dist/css/bootstrap-slider';
 var mySlider;
 
 function startSlide() {
-  // var input = document.querySelector("input.slider");
-  mySlider = new Slider("#ex1", {
-    tooltip: 'always',
-    tooltip_position: 'bottom'
-  });
 
-  mySlider.on('slideStop', filterDistance);
+  var ex1 = document.getElementById("ex1");
+  // var input = document.querySelector("input.slider");
+  if (ex1) {
+    mySlider = new Slider("#ex1", {
+      tooltip: 'always',
+      tooltip_position: 'bottom'
+    });
+
+    mySlider.on('slideStop', filterDistance);
+  }
 
 }
 

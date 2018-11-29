@@ -2,5 +2,6 @@
   <%= render 'shared/attendees_avatars', attendees: event.attendees %>
   <div class="flex-grow-1 pl-1">
     <%= pluralize(event.attendees.size, 'attendee') %>
+     <a class="message-link" data-toggle="collapse" data-target="#users" href="#users" role="button" aria-expanded="false" aria-controls="collapseExample"></a>
   </div>
 </div>
