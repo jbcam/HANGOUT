@@ -84,7 +84,7 @@ user_attributes = [
   city: 'Scorbé-Clairvaux',
   bio: Faker::Lorem.sentence(3),
   job: 'Wizard',
-  category: Category.third,
+  category: Category.second,
   mood: "Play 'Pétanque'" ,
   latitude: 44.859351,
   longitude: -0.5681261
@@ -163,6 +163,21 @@ user_attributes = [
   mood: 'Raclette!!',
   latitude: 44.8347567,
   longitude: -0.5750013
+},
+{
+  first_name: 'Bernie',
+  last_name: 'Noel',
+  email: 'bernie@bernie.fr',
+  remote_avatar_url: 'https://i.ytimg.com/vi/TlfXOSzRgZ0/maxresdefault.jpg',
+  password:'azerty',
+  linkedin: 'https://www.linkedin.com/in/ines-mokaddem/?originalSubdomain=fr',
+  city: 'Montreuil',
+  bio: "J'm'appelle Bernie Noël, j'ai 29 ans bientôt 32.",
+  job: 'Coach personnel',
+  category: Category.second,
+  mood: 'Foot!!!',
+  latitude: 44.8347567,
+  longitude: -0.5750013
 }
 ]
 
@@ -196,7 +211,7 @@ event_attributes = [
     private: false,
     name: 'Poker night',
     description: "Tournoi de poker Texas Holdem",
-    category: Category.first,
+    category: Category.second,
     user: User.first
   },
   {
@@ -206,7 +221,7 @@ event_attributes = [
     private: false,
     name: 'Diner at Kokomo',
     description: "Burger et cheese fries",
-    category: Category.second,
+    category: Category.last,
     user: User.second
   },
    {
@@ -216,7 +231,7 @@ event_attributes = [
     private: false,
     name: "Visit 'Citée du vin'",
     description: "I have a free ticket :)",
-    category: Category.second,
+    category: Category.fourth,
     user: User.second
   },
   {
