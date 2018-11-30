@@ -1,5 +1,5 @@
 meta_product_name: "Bizzy"
 meta_title: "Bizzy - Hang out with other business travelers"
 meta_description: "Bizzy allows people to meet new people on business trips and to avoid lonelyness"
-meta_image: "cover.jpg"                       # should exist in `app/assets/images/`
+meta_image: "bizzy.png"                       # should exist in `app/assets/images/`
 
