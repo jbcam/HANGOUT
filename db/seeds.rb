@@ -47,7 +47,7 @@ Category.create!(category_attributes)
 user_attributes = [
 {
   first_name: 'Kevin',
-  last_name: 'Joya',
+  last_name: 'Lo',
   email: 'kevin.joya@outlook.com',
   remote_avatar_url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEQC_3saaJjs72teIiASOfaqkc7r0M_QMcTiFfRI1RHDZnmUCV',
   password:'azerty',
@@ -56,6 +56,7 @@ user_attributes = [
   bio: Faker::Lorem.sentence(3),
   job: "Le flic d'Hendaye",
   category: Category.first,
+  mood: 'Go to watch Venom',
   latitude: 44.8347567,
   longitude: -0.5750013
 },
@@ -63,7 +64,7 @@ user_attributes = [
   first_name: 'Nicolas',
   last_name: 'Béjenne',
   email: 'nicolas.bejenne@gmail.com',
-  remote_avatar_url: 'https://kitt.lewagon.com/placeholder/users/nbejenne',
+  remote_avatar_url: 'https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/z3mmznydhd0y6e9tcwi1.jpg',
   password:'azerty',
   linkedin: 'https://www.linkedin.com/in/nicolas-b%C3%A9jenne-7005518b/',
   city: 'Paris',
@@ -84,6 +85,7 @@ user_attributes = [
   bio: Faker::Lorem.sentence(3),
   job: 'Wizard',
   category: Category.third,
+  mood: "Play 'Pétanque'" ,
   latitude: 44.859351,
   longitude: -0.5681261
 },
@@ -98,6 +100,7 @@ user_attributes = [
   bio: Faker::Lorem.sentence(3),
   job: 'Data Analyst',
   category: Category.third,
+  mood: "Concert of Johnny!!",
   latitude: 44.859351,
   longitude: -0.5681261
 },
@@ -112,6 +115,7 @@ user_attributes = [
   bio: Faker::Lorem.sentence(3),
   job: 'Bread Scientist',
   category: Category.fourth,
+  mood: 'city tour',
   latitude: 44.8268667,
   longitude: 0.5744507
 },
@@ -125,7 +129,8 @@ user_attributes = [
   city: 'Bordeaux',
   bio: Faker::Lorem.sentence(3),
   job: 'Jurist',
-  category: Category.first,
+  mood: 'go for a drink',
+  category: Category.fifth,
   latitude: 44.8268667,
   longitude: -0.5744507
 },
@@ -140,6 +145,7 @@ user_attributes = [
   bio: Faker::Lorem.sentence(3),
   job: 'Entrepreneur',
   category: Category.first,
+  mood: 'Go to cinema',
   latitude: 46.8127079,
   longitude: 0.5397638
 },
@@ -153,7 +159,8 @@ user_attributes = [
   city: 'Bordeaux',
   bio: "Passionnée d'Instagram, j'ai décidé de devenir influenceuse #BIZZYTROPCOOL",
   job: 'Influenceuse',
-  category: Category.second,
+  category: Category.last,
+  mood: 'Raclette!!',
   latitude: 44.8347567,
   longitude: -0.5750013
 }
@@ -207,8 +214,8 @@ event_attributes = [
     ends_at: DateTime.now.change({ hour: 23, min: 0, sec: 0 }),
     address: 'Cours Jules Ladoumegue, 33300 Bordeaux',
     private: false,
-    name: 'Finale de Champions League',
-    description: "Bordeaux - Real Madrid",
+    name: "Visit 'Citée du vin'",
+    description: "I have a free ticket :)",
     category: Category.second,
     user: User.second
   },
@@ -219,7 +226,7 @@ event_attributes = [
     private: false,
     name: 'Beethoven Concerto',
     description: "Etre en avance",
-    category: Category.second,
+    category: Category.third,
     user: User.second
   }
 ]
