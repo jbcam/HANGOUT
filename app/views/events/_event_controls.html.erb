@@ -1,7 +1,7 @@
 <div class=" col d-inline-flex p-2 border-bt">
-  <% if current_user.events.include? event %>
+  <% if current_user.attendee?(event) %>
     <div class="flex-fill text-center control control-active">
-    <%= link_to raw('<i class="fas fa-user-check"></i>'),  event_attendees_path(event), method: :post, remote: true %>
+    <%= link_to raw('<i class="fas fa-user-check"></i>'),  event_attendee_path(event, current_user.attendee(event)), method: :delete, remote: true %>
       <p>going</p>
     </div>
   <% else %>

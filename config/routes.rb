@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   post "/save-coordinates", to: "users#save_coordinates"
 
   resources :events, only: [:index, :show, :new, :create, :edit, :update] do
-    resources :attendees, only: [:create]
+    resources :attendees, only: [:create, :destroy]
   end
 
 
