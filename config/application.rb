@@ -20,5 +20,9 @@ module HANGOUT
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+    # config.logger = Logger.new(STDOUT)
+    # config.logger = Log4r::Logger.new('app.log')
+    # config.log_level = :debug
+
   end
 end

@@ -48,4 +48,12 @@ class User < ApplicationRecord
     channels = sender_conversations + recipient_conversations + events
     channels.map(&:id).to_json
   end
+
+  def attendee?(event)
+    events.include? event
+  end
+
+  def attendee(event)
+    attendees.where(event: event).first
+  end
 end
