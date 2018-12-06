@@ -1,8 +1,6 @@
-
- <!-- status -->
+<!-- status -->
  <!-- off line view -->
-
- <%= render 'pages/offline', users: @users if current_user.unavailable? && @users %>
+<%= render 'pages/offline', users: @users if current_user.unavailable? && @users %>
 
  <!-- results -->
 <div class="container <%= 'd-none' if current_user.unavailable? %> " id="available">
