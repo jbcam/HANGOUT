@@ -1,14 +1,23 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  root to: 'pages#home'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  unauthenticated :user do
+    root 'pages#index', as: :unauthenticated #-> if user is not logged in
+  end
+
+  authenticated :user do
+    root 'pages#home', as: :root #-> if user is logged in
+  #root to: 'pages#home'
+    # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  end
+
   resources :users, only: [:index, :show, :edit, :update] do
     collection do
       post "toggle_availability"
     end
   end
+
   post "/save-coordinates", to: "users#save_coordinates"
 
   resources :events, only: [:index, :show, :new, :create, :edit, :update] do
@@ -19,8 +28,6 @@ Rails.application.routes.draw do
   namespace :my do
     resources :profile, only: [:index]
   end
-
-
 
   # Serve websocket cable requests in-process
   mount ActionCable.server => '/cable'
@@ -35,9 +42,5 @@ Rails.application.routes.draw do
       resources :messages, only: [:create]
     end
   end
-
-  # resources :conversations, only: [ :create, :createConsumer] do
-  #   resources :messages, only: [:create]
-  # end
 
 end

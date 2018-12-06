@@ -1,4 +1,8 @@
 class PagesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index]
+
+  def index
+  end
 
   def home
     if params[:query].present? && params[:user_index]
@@ -10,8 +14,5 @@ class PagesController < ApplicationController
     else
       @users = User.where.not(id: current_user.id)
     end
-  end
-
-  def chat
   end
 end

@@ -1,0 +1,38 @@
+.wrapper-landing {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), asset-url('login_wrapper.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.container-landing {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  padding: 5vh 0 15px 5vh;
+  margin-bottom: 0;
+}
+.logo-landing {
+  background: $blue;
+  border-radius: 20px;
+  width: 200px;
+  padding: 5px;
+}
+
+.tag-line {
+  color: white;
+  font-size: 30px;
+  margin-top: 100px;
+}
+
+.sign-in {
+  color: white;
+  font-size: 20px;
+  padding: 5px;
+}
+
+.sign-in:hover {
+  text-decoration: none;
+  color: $blue;
+}
